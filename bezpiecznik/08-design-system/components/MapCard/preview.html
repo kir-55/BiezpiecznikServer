@@ -1,0 +1,31 @@
+<!-- @dsCard group="Szablony czatu" height=480 subtitle="map — najbliższy punkt i wejście do prowadzenia" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>MapCard</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 20px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .col { display: grid; gap: 12px; align-content: start; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: start; }
+  .lbl { font-size: 12px; line-height: 16px; color: var(--ink-300); }
+  .w360 { max-width: 360px; } .w420 { max-width: 420px; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement, I = function (n, s) { return h(Z.Icon, { name: n, size: s }); };
+  var noop = function () {};
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap grid2' },
+      h(Z.MapCard, { kind: 'shelter', name: 'ul. Lipowa 5', distance: 450, time: 6, bearing: 45, source: 'KG PSP · zweryf. 03.2026', onGuide: noop, onOpenMap: noop }),
+      h('div', { className: 'col' },
+        h(Z.MapCard, { kind: 'shelter', name: 'ul. Polna 2', distance: 700, time: 9, bearing: 160, confirmed: false, straightLine: true, lastKnown: '14:05', onGuide: noop, onOpenMap: noop }),
+        h(Z.MapCard, { title: 'Najbliższy szpital', kind: 'hospital', name: 'SOR, ul. Arkońska 4', noPosition: true, onOpenMap: noop })))
+  );
+</script>
+</body>
+</html>

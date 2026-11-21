@@ -1,0 +1,616 @@
+{
+  "manifestVersion": 3,
+  "name": "Bezpiecznik",
+  "namespace": "Bezpiecznik",
+  "files": [
+    "assets/Icons/README.md",
+    "assets/Logo/README.md",
+    "components/AnimationPanel/README.md",
+    "components/BulletsPanel/README.md",
+    "components/Button/README.md",
+    "components/CallPanel/README.md",
+    "components/ChatDrawer/README.md",
+    "components/Chrome/README.md",
+    "components/Composer/README.md",
+    "components/Controls/README.md",
+    "components/CprPinned/README.md",
+    "components/Fallback112/README.md",
+    "components/MapCard/README.md",
+    "components/MapElements/README.md",
+    "components/Message/README.md",
+    "components/Motion/README.md",
+    "components/NoSource/README.md",
+    "components/OfflineBadge/README.md",
+    "components/Onboarding/README.md",
+    "components/Overlays/README.md",
+    "components/PointSheet/README.md",
+    "components/QuickActions/README.md",
+    "components/QuotePanel/README.md",
+    "components/Route/README.md",
+    "components/ScreensChat/README.md",
+    "components/ScreensMap/README.md",
+    "components/ScreensPanels/README.md",
+    "components/SignalPanel/README.md",
+    "components/SourceChip/README.md",
+    "components/Steps/README.md",
+    "components/StepsPanel/README.md",
+    "components/Thinking/README.md",
+    "components/bundle.css",
+    "components/bundle.js",
+    "components/index.d.ts",
+    "fonts/atkinson-hyperlegible-next-latin-ext-wght-normal.woff2",
+    "fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2",
+    "komponenty.md",
+    "motion.md",
+    "tokens.css"
+  ],
+  "libraries": [
+    {
+      "name": "react",
+      "version": "18",
+      "global": "React"
+    },
+    {
+      "name": "react-dom",
+      "version": "18",
+      "global": "ReactDOM"
+    }
+  ],
+  "components": [
+    {
+      "name": "Logo"
+    },
+    {
+      "name": "Button",
+      "group": "Actions",
+      "summary": "Przyciski w stylu ChatGPT: tekstowe zawsze jako pigułka (radius-full), przycisk z samą ikoną zawsze jako koło."
+    },
+    {
+      "name": "Checkbox"
+    },
+    {
+      "name": "Switch"
+    },
+    {
+      "name": "Segmented"
+    },
+    {
+      "name": "ProgressBar"
+    },
+    {
+      "name": "ChoiceChips"
+    },
+    {
+      "name": "TextField"
+    },
+    {
+      "name": "ListRow"
+    },
+    {
+      "name": "SectionHeader"
+    },
+    {
+      "name": "Notice"
+    },
+    {
+      "name": "Toast"
+    },
+    {
+      "name": "Dialog"
+    },
+    {
+      "name": "Sheet"
+    },
+    {
+      "name": "NavIsland"
+    },
+    {
+      "name": "FloatingButton"
+    },
+    {
+      "name": "SosButton"
+    },
+    {
+      "name": "CprIndicator"
+    },
+    {
+      "name": "Composer",
+      "group": "Czat",
+      "summary": "Pole wpisywania pytania — kopia proporcji ChatGPT: pigułka radius-xl (28 px), min."
+    },
+    {
+      "name": "Message",
+      "group": "Czat",
+      "summary": "Wiadomość w czacie, jak w ChatGPT: użytkownik w dymku po prawej (bg-200, radius-lg 18 px, max 70% szerokości), asystent bez dymka, tekst na całą szerokość (cha…"
+    },
+    {
+      "name": "AnswerLabel"
+    },
+    {
+      "name": "SourceChip",
+      "group": "Czat",
+      "summary": "Dowód, że odpowiedź pochodzi z oficjalnego źródła: wydawca · tytuł · strona na verified-tint."
+    },
+    {
+      "name": "Thinking",
+      "group": "Czat",
+      "summary": "Stan „model pracuje”: pulsująca kropka (jak w ChatGPT przed pierwszym słowem) i tekst statusu z przesuwającym się połyskiem."
+    },
+    {
+      "name": "QuickActions",
+      "group": "Czat",
+      "summary": "QuickActions — siatka 2 × 2 w pustym czacie: Ktoś nie oddycha · Brak prądu · Alarm / schron · Ewakuacja."
+    },
+    {
+      "name": "JumpToLatest"
+    },
+    {
+      "name": "NoSource",
+      "group": "Czat",
+      "summary": "Spokojna odpowiedź, gdy pobrane źródła nie odpowiadają na pytanie, a sytuacja nie jest krytyczna."
+    },
+    {
+      "name": "OfflineBadge",
+      "group": "Status",
+      "summary": "Stały znacznik w nagłówku: aplikacja działa bez sieci."
+    },
+    {
+      "name": "PanelCard"
+    },
+    {
+      "name": "StepsPanel",
+      "group": "Szablony czatu",
+      "summary": "Szablon steps: numerowane kroki do wykonania po kolei, w karcie PanelCard."
+    },
+    {
+      "name": "Steps",
+      "group": "Czat",
+      "summary": "Zastąpiony przez StepsPanel w szablonie steps (karta, odhaczanie, źródło przy każdym kroku, warianty)."
+    },
+    {
+      "name": "BulletsPanel",
+      "group": "Szablony czatu",
+      "summary": "Szablon bullets: lista bez kolejności (co zabrać, czego unikać, braki w plecaku). checkable dodaje checkbox do każdego elementu i licznik „{n} z {m}” w nagłówk…"
+    },
+    {
+      "name": "QuotePanel",
+      "group": "Szablony czatu",
+      "summary": "Szablon quote i podgląd PDF: oryginalny fragment źródła bez wychodzenia z czatu."
+    },
+    {
+      "name": "MapCard",
+      "group": "Szablony czatu",
+      "summary": "Szablon map: najbliższy punkt (schron, szpital, straż, woda, apteka) z odległością, czasem dojścia i kierunkiem, wejście do Mapy."
+    },
+    {
+      "name": "CallPanel",
+      "group": "Szablony czatu",
+      "summary": "Wezwanie pomocy (EmergencyContactPanel ze specyfikacji): w czacie (szablon call, inline) i po dotknięciu SOS (Panel 2, sheet)."
+    },
+    {
+      "name": "Fallback112",
+      "group": "Bezpieczeństwo",
+      "summary": "Zastąpiony przez CallPanel — specyfikacja ma jeden komponent wezwania pomocy (EmergencyContactPanel), używany i w czacie (szablon call), i w Panelu 2."
+    },
+    {
+      "name": "SignalPanel",
+      "group": "Szablony czatu",
+      "summary": "Szablon signal: zwrócić uwagę ratowników, gdy nie da się zadzwonić."
+    },
+    {
+      "name": "CprCard"
+    },
+    {
+      "name": "CprPinned",
+      "group": "Szablony czatu",
+      "summary": "Szablon cpr, tylko w karcie RKO (bez modelu AI)."
+    },
+    {
+      "name": "AnimationPanel",
+      "group": "Szablony czatu",
+      "summary": "Szablon animation, tylko w kartach ratunkowych."
+    },
+    {
+      "name": "MapMarker"
+    },
+    {
+      "name": "UserDot"
+    },
+    {
+      "name": "DetailIndicator"
+    },
+    {
+      "name": "PointSheet",
+      "group": "Mapa",
+      "summary": "Zawartość arkuszy na ekranie Mapa (w Sheet, maks."
+    },
+    {
+      "name": "NearestList"
+    },
+    {
+      "name": "LayersSheet"
+    },
+    {
+      "name": "RouteBanner"
+    },
+    {
+      "name": "RouteBar"
+    },
+    {
+      "name": "CompassView"
+    },
+    {
+      "name": "ChatDrawer",
+      "group": "Panele",
+      "summary": "Panel 1, wysuwany z lewej (85% szerokości, maks."
+    },
+    {
+      "name": "StepHeader"
+    },
+    {
+      "name": "QuestionStep"
+    },
+    {
+      "name": "PackageRow"
+    },
+    {
+      "name": "Chrome",
+      "group": "Globalne",
+      "summary": "Elementy globalne, renderowane w RootOverlay nad nawigatorem, nie w każdym ekranie."
+    },
+    {
+      "name": "Controls",
+      "group": "Kontrolki",
+      "summary": "Kontrolki formularzy i list."
+    },
+    {
+      "name": "MapElements",
+      "group": "Mapa",
+      "summary": "MapMarker, UserDot, DetailIndicator."
+    },
+    {
+      "name": "Motion",
+      "group": "Fundamenty",
+      "summary": "Pokaz animacji systemu."
+    },
+    {
+      "name": "Onboarding",
+      "group": "Panele",
+      "summary": "Elementy E0 (pierwsze uruchomienie), E3 (ustawienia) i E4 (profil)."
+    },
+    {
+      "name": "Overlays",
+      "group": "Kontrolki",
+      "summary": "Warstwy aplikacji."
+    },
+    {
+      "name": "Route",
+      "group": "Mapa",
+      "summary": "RouteBanner — u góry w trybie route: kwadrat signal z dużą strzałką manewru (32 px), „Za 120 m w prawo” 20 px pogrubione, ulica pod spodem."
+    },
+    {
+      "name": "ScreensChat",
+      "group": "Ekrany",
+      "summary": "Makiety E1 złożone z komponentów systemu (390 × 844)."
+    },
+    {
+      "name": "ScreensMap",
+      "group": "Ekrany",
+      "summary": "Makiety E2 (390 × 844)."
+    },
+    {
+      "name": "ScreensPanels",
+      "group": "Ekrany",
+      "summary": "Makiety P2 (Kontakt ze służbami), P1 (Panel boczny) i stanów czatu: generowanie (Thinking ze szkieletem, przycisk Zatrzymaj) i odmowa (NoSource)."
+    }
+  ],
+  "assetGroups": [
+    {
+      "name": "Logo",
+      "tile": "l",
+      "order": [
+        "bezpiecznik-app-icon.svg",
+        "bezpiecznik-znak.svg"
+      ],
+      "files": [
+        {
+          "path": "assets/Logo/bezpiecznik-app-icon.svg",
+          "id": "d7db4261d9a04b6006056a8f371b38ef"
+        },
+        {
+          "path": "assets/Logo/bezpiecznik-znak.svg",
+          "id": "1726719e0824d1da546300297d473546"
+        }
+      ]
+    },
+    {
+      "name": "Icons",
+      "tile": "xs",
+      "order": [
+        "shield.svg",
+        "house.svg",
+        "droplet.svg",
+        "hospital.svg",
+        "flame.svg",
+        "heart-pulse.svg",
+        "compass.svg",
+        "navigation.svg",
+        "map-pin.svg",
+        "wifi-off.svg",
+        "plane.svg",
+        "pill.svg",
+        "refrigerator.svg",
+        "baby.svg",
+        "paw-print.svg",
+        "backpack.svg",
+        "battery-low.svg",
+        "phone.svg",
+        "triangle-alert.svg",
+        "book-open.svg",
+        "check.svg",
+        "arrow-up.svg",
+        "mic.svg",
+        "plus.svg"
+      ],
+      "files": [
+        {
+          "path": "assets/Icons/shield.svg",
+          "id": "0de0f47f551492863a8ec1e0ea33ad54"
+        },
+        {
+          "path": "assets/Icons/house.svg",
+          "id": "1f7f5a3ed8feb3ecd2ca29985a69b931"
+        },
+        {
+          "path": "assets/Icons/droplet.svg",
+          "id": "1b505310b5eb595bc727d974646d8dbe"
+        },
+        {
+          "path": "assets/Icons/hospital.svg",
+          "id": "26022ac88dbdabb1fb630beec0b76ea9"
+        },
+        {
+          "path": "assets/Icons/flame.svg",
+          "id": "b931dce3f24ac3fce619ae242185cd03"
+        },
+        {
+          "path": "assets/Icons/heart-pulse.svg",
+          "id": "4d2ecf52a3cee2ecdbc558e7db902a55"
+        },
+        {
+          "path": "assets/Icons/compass.svg",
+          "id": "09a2afd968bb804bf49bd759468d3605"
+        },
+        {
+          "path": "assets/Icons/navigation.svg",
+          "id": "2292c7654f1912e7e72e15544f73ec84"
+        },
+        {
+          "path": "assets/Icons/map-pin.svg",
+          "id": "a5b3c6c2f66bdca91789e5b2b4e6f4bb"
+        },
+        {
+          "path": "assets/Icons/wifi-off.svg",
+          "id": "4a42a3a15d2675fbab99a9f603b7d5a9"
+        },
+        {
+          "path": "assets/Icons/plane.svg",
+          "id": "25080cf76dcba8d64b6ff9b3095f36ed"
+        },
+        {
+          "path": "assets/Icons/pill.svg",
+          "id": "9048faaec74cc007cbf0c92c51330dfe"
+        },
+        {
+          "path": "assets/Icons/refrigerator.svg",
+          "id": "fe5344293cd91b3f90f14b53a69d0f0f"
+        },
+        {
+          "path": "assets/Icons/baby.svg",
+          "id": "ffc0a9e27e1474174dd0242d97a4b5e3"
+        },
+        {
+          "path": "assets/Icons/paw-print.svg",
+          "id": "cd4c5c2c165f63b216c684830de8b584"
+        },
+        {
+          "path": "assets/Icons/backpack.svg",
+          "id": "b1b85425952533e73953f9675f5ba35d"
+        },
+        {
+          "path": "assets/Icons/battery-low.svg",
+          "id": "f8d2d27329273d427cd53362d9ae53cf"
+        },
+        {
+          "path": "assets/Icons/phone.svg",
+          "id": "5691c4b8d1d506fb7d5a4b47c48da337"
+        },
+        {
+          "path": "assets/Icons/triangle-alert.svg",
+          "id": "1b2405dcc219827efd980a007f9442ea"
+        },
+        {
+          "path": "assets/Icons/book-open.svg",
+          "id": "4cbada8fdf9c61c5a660fb554fcc7622"
+        },
+        {
+          "path": "assets/Icons/check.svg",
+          "id": "8c933a14dab7a97265c9995b641db327"
+        },
+        {
+          "path": "assets/Icons/arrow-up.svg",
+          "id": "ce969dd4c0987d9a9870e4523ecc52f1"
+        },
+        {
+          "path": "assets/Icons/mic.svg",
+          "id": "77f9f58e8703ab17a6924541b347946e"
+        },
+        {
+          "path": "assets/Icons/plus.svg",
+          "id": "c1c425d5817968282f7bc2ec65d7868c"
+        }
+      ]
+    }
+  ],
+  "storage": {
+    "files": {
+      "assets/Icons/arrow-up.svg": {
+        "store": "blob",
+        "id": "ce969dd4c0987d9a9870e4523ecc52f1",
+        "bytes": 239,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/baby.svg": {
+        "store": "blob",
+        "id": "ffc0a9e27e1474174dd0242d97a4b5e3",
+        "bytes": 449,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/backpack.svg": {
+        "store": "blob",
+        "id": "b1b85425952533e73953f9675f5ba35d",
+        "bytes": 433,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/battery-low.svg": {
+        "store": "blob",
+        "id": "f8d2d27329273d427cd53362d9ae53cf",
+        "bytes": 332,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/book-open.svg": {
+        "store": "blob",
+        "id": "4cbada8fdf9c61c5a660fb554fcc7622",
+        "bytes": 356,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/check.svg": {
+        "store": "blob",
+        "id": "8c933a14dab7a97265c9995b641db327",
+        "bytes": 215,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/compass.svg": {
+        "store": "blob",
+        "id": "09a2afd968bb804bf49bd759468d3605",
+        "bytes": 331,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/droplet.svg": {
+        "store": "blob",
+        "id": "1b505310b5eb595bc727d974646d8dbe",
+        "bytes": 301,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/flame.svg": {
+        "store": "blob",
+        "id": "b931dce3f24ac3fce619ae242185cd03",
+        "bytes": 369,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/heart-pulse.svg": {
+        "store": "blob",
+        "id": "4d2ecf52a3cee2ecdbc558e7db902a55",
+        "bytes": 394,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/hospital.svg": {
+        "store": "blob",
+        "id": "26022ac88dbdabb1fb630beec0b76ea9",
+        "bytes": 437,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/house.svg": {
+        "store": "blob",
+        "id": "1f7f5a3ed8feb3ecd2ca29985a69b931",
+        "bytes": 369,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/map-pin.svg": {
+        "store": "blob",
+        "id": "a5b3c6c2f66bdca91789e5b2b4e6f4bb",
+        "bytes": 339,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/mic.svg": {
+        "store": "blob",
+        "id": "77f9f58e8703ab17a6924541b347946e",
+        "bytes": 341,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/navigation.svg": {
+        "store": "blob",
+        "id": "2292c7654f1912e7e72e15544f73ec84",
+        "bytes": 237,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/paw-print.svg": {
+        "store": "blob",
+        "id": "cd4c5c2c165f63b216c684830de8b584",
+        "bytes": 407,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/phone.svg": {
+        "store": "blob",
+        "id": "5691c4b8d1d506fb7d5a4b47c48da337",
+        "bytes": 485,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/pill.svg": {
+        "store": "blob",
+        "id": "9048faaec74cc007cbf0c92c51330dfe",
+        "bytes": 294,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/plane.svg": {
+        "store": "blob",
+        "id": "25080cf76dcba8d64b6ff9b3095f36ed",
+        "bytes": 397,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/plus.svg": {
+        "store": "blob",
+        "id": "c1c425d5817968282f7bc2ec65d7868c",
+        "bytes": 234,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/refrigerator.svg": {
+        "store": "blob",
+        "id": "fe5344293cd91b3f90f14b53a69d0f0f",
+        "bytes": 321,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/shield.svg": {
+        "store": "blob",
+        "id": "0de0f47f551492863a8ec1e0ea33ad54",
+        "bytes": 362,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/triangle-alert.svg": {
+        "store": "blob",
+        "id": "1b2405dcc219827efd980a007f9442ea",
+        "bytes": 325,
+        "type": "image/svg+xml"
+      },
+      "assets/Icons/wifi-off.svg": {
+        "store": "blob",
+        "id": "4a42a3a15d2675fbab99a9f603b7d5a9",
+        "bytes": 482,
+        "type": "image/svg+xml"
+      },
+      "assets/Logo/bezpiecznik-app-icon.svg": {
+        "store": "blob",
+        "id": "d7db4261d9a04b6006056a8f371b38ef",
+        "bytes": 741,
+        "type": "image/svg+xml"
+      },
+      "assets/Logo/bezpiecznik-znak.svg": {
+        "store": "blob",
+        "id": "1726719e0824d1da546300297d473546",
+        "bytes": 756,
+        "type": "image/svg+xml"
+      }
+    },
+    "blobBytesUsed": 9946
+  }
+}

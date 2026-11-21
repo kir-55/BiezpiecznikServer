@@ -1,0 +1,31 @@
+<!-- @dsCard group="Szablony czatu" height=400 subtitle="quote — wycinek strony PDF z zakreśleniem" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>QuotePanel</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 20px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .col { display: grid; gap: 12px; align-content: start; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: start; }
+  .lbl { font-size: 12px; line-height: 16px; color: var(--ink-300); }
+  .w360 { max-width: 360px; } .w420 { max-width: 420px; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement, I = function (n, s) { return h(Z.Icon, { name: n, size: s }); };
+  var noop = function () {};
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap grid2' },
+      h(Z.QuotePanel, { docTitle: 'Poradnik bezpieczeństwa', pageLabel: 14, publisher: 'RCB, MON, MSWiA', issued: '2025', onExpand: noop,
+        before: 'Przygotuj zapas wody i żywności na co najmniej trzy doby.', highlight: 'Leki wymagające chłodzenia przechowuj w torbie termoizolacyjnej z wkładami chłodzącymi.', after: 'Sprawdź datę ważności zapasów co pół roku.' }),
+      h('div', { className: 'col' }, h(Z.QuotePanel, { docTitle: 'Nim nadejdzie dzień', pageLabel: 9, publisher: 'Akademia Pożarnicza', issued: '2024', highlight: 'Nie używaj agregatu prądotwórczego w zamkniętym pomieszczeniu.', missing: true }),
+        h('div', { className: 'lbl' }, 'Treść i numery stron w podglądach są przykładowe.')))
+  );
+</script>
+</body>
+</html>

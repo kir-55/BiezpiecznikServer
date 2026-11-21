@@ -1,0 +1,36 @@
+<!-- @dsCard group="Mapa" height=520 subtitle="Arkusze: punkt, najbliższe, warstwy" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>PointSheet</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 20px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .col { display: grid; gap: 12px; align-content: start; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: start; }
+  .lbl { font-size: 12px; line-height: 16px; color: var(--ink-300); }
+  .w360 { max-width: 360px; } .w420 { max-width: 420px; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement, I = function (n, s) { return h(Z.Icon, { name: n, size: s }); };
+  var noop = function () {};
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap grid3' },
+      h(Z.Sheet, { maxHeight: 'none' }, h(Z.PointSheet, { kind: 'shelter', name: 'Schron', address: 'ul. Lipowa 5, Szczecin', availability: 'Całodobowo', distance: 450, bearing: 45, relBearing: 30, sourceName: 'KG PSP', verifiedAt: '12.10.2026', onGuide: noop, onCompass: noop })),
+      h(Z.Sheet, { maxHeight: 'none' }, h(Z.NearestList, { onSelect: noop, items: [
+        { kind: 'shelter', name: 'ul. Lipowa 5', distance: 450, relBearing: 30 },
+        { kind: 'emergency_shelter', name: 'Szkoła nr 3', distance: 620, relBearing: 90 },
+        { kind: 'shelter', name: 'ul. Polna 2', distance: 700, relBearing: 180, confirmed: false }] })),
+      h(Z.Sheet, { title: 'Warstwy', maxHeight: 'none' }, h(Z.LayersSheet, { layers: [
+        { id: 's', kind: 'shelter', label: 'Schrony i ukrycia', defaultOn: true }, { id: 'm', kind: 'emergency_shelter', label: 'Miejsca doraźnego schronienia', defaultOn: true },
+        { id: 'h', kind: 'hospital', label: 'Szpitale i SOR', defaultOn: true }, { id: 'f', kind: 'fire_station', label: 'Straż PSP i OSP' },
+        { id: 'w', kind: 'water', label: 'Punkty poboru wody' }, { id: 'p', kind: 'pharmacy', label: 'Apteki' }] })))
+  );
+</script>
+</body>
+</html>

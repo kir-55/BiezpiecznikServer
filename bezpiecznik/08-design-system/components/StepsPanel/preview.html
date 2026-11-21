@@ -1,0 +1,34 @@
+<!-- @dsCard group="Szablony czatu" height=600 subtitle="steps — kroki z odhaczaniem i źródłem" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>StepsPanel</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 20px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .col { display: grid; gap: 12px; align-content: start; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: start; }
+  .lbl { font-size: 12px; line-height: 16px; color: var(--ink-300); }
+  .w360 { max-width: 360px; } .w420 { max-width: 420px; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement, I = function (n, s) { return h(Z.Icon, { name: n, size: s }); };
+  var noop = function () {};
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap grid2' },
+      h(Z.StepsPanel, { title: 'Teraz', defaultDone: [0], items: [
+        { text: 'Nie otwieraj lodówki bez potrzeby.', source: { docShort: 'Poradnik bezp.', docTitle: 'Poradnik bezpieczeństwa', page: 14, onClick: noop } },
+        { text: 'Przełóż insulinę do torby chłodzącej.', source: { docShort: 'Poradnik bezp.', docTitle: 'Poradnik bezpieczeństwa', page: 14, onClick: noop } },
+        { text: 'Ogrzej jedno pomieszczenie dla dziecka.', source: { docShort: 'Nim nadejdzie…', docTitle: 'Nim nadejdzie dzień', page: 9, onClick: noop } } ] }),
+      h(Z.StepsPanel, { title: 'RKO', readAloud: true, variants: [{ id: 'adult', label: 'Dorosły' }, { id: 'child', label: 'Dziecko' }, { id: 'infant', label: 'Niemowlę' }],
+        items: [ { text: 'Zadzwoń pod 112 i włącz głośnik.', source: { docShort: 'PRC/ERC 2025', page: 12, onClick: noop } },
+                 { text: 'Połóż dłonie na środku klatki piersiowej.', source: { docShort: 'PRC/ERC 2025', page: 14, onClick: noop } } ] }))
+  );
+</script>
+</body>
+</html>

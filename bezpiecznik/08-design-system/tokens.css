@@ -1,0 +1,142 @@
+/* Bezpiecznik — generated from tokens.json */
+:root, [data-theme="dark"] {
+  --bg-000: #100f0e; /* Tło aplikacji i ekranu czatu. Grafit, nie czysta czerń — mniej smużenia na OLED przy przewijaniu, wciąż tani dla baterii. */
+  --bg-100: #181715; /* Sidebar, pasek dolny, pole wpisywania (composer). */
+  --bg-200: #21201d; /* Dymek wiadomości użytkownika, karty planu 72h, arkusze. */
+  --bg-300: #2c2a27; /* Hover i stan aktywny na bg-100/bg-200. Nie do tekstu w kolorze ink-300. */
+  --line-100: #282623; /* Hairline: separatory list, krawędzie kart. Dekoracyjne, nie niesie znaczenia. */
+  --line-150: #3a3732; /* Subtelna ramka elementów z etykietą: przycisk secondary, chipy, karty klikalne — odpowiednik border-medium z ChatGPT. Dekoracyjna: kontrolkę identyfikuje tekst, nie ramka. */
+  --line-200: #67635d; /* Obramowanie kontrolek (input, checkbox, przycisk outline) — 3.3:1 na bg-000. */
+  --ink-100: #eeece6; /* Tekst główny: odpowiedzi asystenta, nagłówki. 16:1 na bg-000. */
+  --ink-200: #a9a59d; /* Tekst drugorzędny: opisy, metadane, placeholder w composerze. ≥5.7:1 na każdym bg. */
+  --ink-300: #8a867f; /* Tekst pomocniczy (znaczniki czasu, podpisy). Tylko na bg-000…bg-200 (≥4.5:1); na bg-300 użyj ink-200. */
+  --overlay-hover: #eeece614; /* Półprzezroczyste podświetlenie hover (8%) dla przycisków ghost/secondary — działa na każdym tle bg-000…bg-300. */
+  --overlay-press: #eeece624; /* Stan wciśnięty (14%) dla ghost/secondary; nakładka hover na przyciskach sos. */
+  --action: var(--ink-100); /* Główny przycisk (wyślij, „Pokaż plan”, „Prowadź do schronu”) — jasny na grafitowym tle, jak w ChatGPT. Jeden na ekran. */
+  --action-press: #d1cec7; /* Hover/wciśnięcie przycisku action. */
+  --on-action: var(--bg-000); /* Tekst i ikona na przycisku action (16:1). */
+  --signal: #c9a66b; /* Akcent marki — przygaszona ochra, „lampka w ciemnym pokoju”. Używany oszczędnie: logo, focus ring, igła kompasu, aktywny krok planu. NIE na główny przycisk (to robi action). */
+  --signal-press: #b08e57; /* Stan wciśnięty/hover elementu w kolorze signal. */
+  --signal-ink: #1a1408; /* Tekst i ikony NA tle signal (8:1). */
+  --signal-tint: #241f16; /* Tło podświetlenia: aktywny krok planu, zaznaczony punkt na mapie. Tekst: signal lub ink-100. */
+  --sos: #a8433b; /* WYŁĄCZNIE fallback „nie wiem — dzwoń 112” i przycisk połączenia alarmowego. Przygaszona cegła, nie alarmowa czerwień — powaga zamiast paniki. Tekst: on-sos (5.9:1). */
+  --sos-text: #e0857b; /* Tekst/ikona ostrzeżenia krytycznego na ciemnym tle (≥5.2:1 na każdym bg). */
+  --sos-tint: #261816; /* Tło bloku ostrzeżenia. Tekst: sos-text lub ink-100. */
+  --on-sos: #ffffff; /* Tekst na tle sos. */
+  --verified: #8db89e; /* Szałwiowa zieleń: odpowiedź potwierdzona źródłem oficjalnym (chip „RCB · s. 34”), bezpieczny punkt na mapie, tryb offline aktywny. */
+  --verified-tint: #18211c; /* Tło chipa źródła i karty cytatu. Tekst: verified lub ink-100. */
+  --info: #8faacb; /* Stalowy błękit: trasa, pozycja GPS, punkty poboru wody. Nie do akcji. */
+  --danger: var(--sos-text); /* Tekst i ramka błędów walidacji oraz akcji niszczących (Usuń czat, Usuń wszystkie dane). Pełne tło sos zostaje tylko dla SOS i 112. */
+  --highlight: #c9a66b66; /* Zakreślacz cytowanego fragmentu na stronie PDF (QuotePanel, podgląd PDF) — ochra 40%. */
+  --scrim: #000000a3; /* Przyciemnienie pod panelem bocznym, arkuszami i dialogami. */
+  --paper: #f4f1ea; /* Tło strony PDF w podglądzie cytatu. Jedyna jasna powierzchnia w ciemnym motywie — to dokument, nie UI. */
+  --paper-ink: #2b2722; /* Tekst strony PDF na paper (13:1). */
+  --shadow-float: 0 2px 12px #00000080; /* Elementy pływające nad treścią i mapą: wyspa, Wstecz, SOS, pigułka stanu, przyciski mapy. */
+  --shadow-sheet: 0 -8px 32px #00000099; /* Arkusz od dołu i panel boczny. */
+  --shadow-pop: 0 8px 24px #00000080; /* Menu, dialog, toast. */
+}
+:root {
+  --space-1: 4px; /* Odstęp ikona–tekst w małych elementach, gap w chipie źródła. */
+  --space-2: 8px; /* Gap między przyciskami, odstęp chipów źródeł pod odpowiedzią. */
+  --space-3: 12px; /* Padding pionowy dymka, odstęp tytuł–opis w kroku. */
+  --space-4: 16px; /* Padding kart i dymków (poziomy), margines boczny ekranu na telefonie. */
+  --space-5: 24px; /* Odstęp między wiadomościami w czacie, padding karty 112. */
+  --space-6: 32px; /* Odstęp między sekcjami ekranu. */
+  --space-7: 48px; /* Duże przerwy: ekran startowy, nad composerem. */
+  --radius-sm: 8px; /* Małe elementy wewnątrz kart, pola liczbowe, miniatury. */
+  --radius-md: 12px; /* Karty w liście (plan 72h, punkt na mapie). */
+  --radius-lg: 18px; /* Dymek wiadomości użytkownika i karty w czacie (karta 112) — jak w ChatGPT. */
+  --radius-xl: 28px; /* Composer (pole wpisywania) i panel dolny mapy — jak w ChatGPT. */
+  --radius-full: 9999px; /* Pigułka i koło: wszystkie przyciski, chipy, znacznik offline. */
+  --duration-fast: 150ms; /* Hover, press, zmiana koloru, focus — wszystkie mikro-reakcje kontrolek. */
+  --duration-base: 200ms; /* Pojawienie się wiadomości, karty, menu; zanikanie elementów. */
+  --duration-slow: 300ms; /* Panel od dołu (mapa, źródło), przejścia ekranów. Maksimum dla przejść. */
+  --duration-stream: 300ms; /* Wygaszanie (fade-in) każdego nowego fragmentu tekstu podczas strumieniowania odpowiedzi. */
+  --duration-pulse: 1200ms; /* Pętla pulsującej kropki „myślę” (Thinking). */
+  --duration-shimmer: 2000ms; /* Pętla połysku tekstu statusu („Szukam w Poradniku…”). */
+  --ease-out: cubic-bezier(0.2, 0, 0, 1); /* Domyślna: wszystko, co się pojawia — wiadomości, karty, menu, strumień tekstu. */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1); /* Zmiany stanu w miejscu: hover, kolor, pulsowanie kropki. */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1); /* Znikanie: zamykanie menu i panelu (szybciej niż wejście). */
+  --ease-sheet: cubic-bezier(0.32, 0.72, 0, 1); /* Panel wysuwany od dołu — miękkie, „natywne” hamowanie jak w iOS. */
+  --font-sans: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  --text-display: 800 40px/44px var(--font-sans); /* Ekran powitalny, wordmark, slajd na scenie. */
+  --text-title: 700 24px/30px var(--font-sans); /* Tytuł ekranu, nagłówek planu. */
+  --text-step: 700 20px/28px var(--font-sans); /* Krok instrukcji „co zrobić teraz” — czytany w stresie, z odległości ręki. */
+  --text-chat: 400 17px/26px var(--font-sans); /* Treść odpowiedzi asystenta i wiadomości użytkownika. */
+  --text-label: 600 14px/20px var(--font-sans); /* Przyciski, zakładki, etykiety pól. */
+  --text-caption: 400 13px/18px var(--font-sans); /* Metadane, znaczniki czasu, podpisy mapy. */
+  --text-source: 500 13px/18px var(--font-sans); /* Chip źródła pod odpowiedzią: „Poradnik bezp., s. 14”. Ten sam krój co reszta — zielone tło chipu mówi „źródło”. */
+  --text-readout: 700 28px/32px var(--font-sans); /* Duże liczby: odległość w kompasie, licznik RKO. Cyfry tabelaryczne (font-variant-numeric: tabular-nums), żeby się nie przesuwały. */
+}
+.display {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.title {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.step {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.chat {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 26px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.caption {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.source {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.readout {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("fonts/atkinson-hyperlegible-next-latin-ext-wght-normal.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}

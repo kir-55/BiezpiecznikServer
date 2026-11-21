@@ -1,0 +1,41 @@
+<!-- @dsCard group="Czat" height=560 subtitle="Scenariusz demo: blackout" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Message</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 16px; max-width: 680px; gap: 24px; }
+  .row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap' },
+      h(Z.Message, { role: 'user' }, 'Prąd wysiadł, mam niemowlę i insulinę w lodówce. Co robić?'),
+      h(Z.Message, {
+        role: 'assistant',
+        sources: [
+          h(Z.SourceChip, { key: 1, source: 'RCB', title: 'Poradnik bezpieczeństwa', page: 34, onClick: function () {} }),
+          h(Z.SourceChip, { key: 2, source: 'Akademia Pożarnicza', page: 12, onClick: function () {} })
+        ],
+        actions: [
+          h(Z.Button, { key: 'c', variant: 'ghost', size: 'sm', 'aria-label': 'Otwórz źródło', icon: h(Z.Icon, { name: 'book-open', size: 16 }) })
+        ]
+      },
+        h('p', null, 'Najpierw zabezpiecz leki i ciepło dla dziecka:'),
+        h(Z.Steps, { items: [
+          { title: 'Nie otwieraj lodówki bez potrzeby', detail: 'Zamknięta utrzyma niską temperaturę przez kilka godzin.' },
+          { title: 'Przygotuj torbę chłodzącą na insulinę', detail: 'Wkłady chłodzące z zamrażarki, owiń lek ręcznikiem — nie kładź bezpośrednio na lodzie.' },
+          { title: 'Ogrzej jedno pomieszczenie', detail: 'Zamknij drzwi, zasłoń okna, ubierz dziecko warstwowo.' }
+        ] })
+      ),
+      h(Z.Message, { role: 'user' }, 'Ile insulina wytrzyma poza lodówką?'),
+      h(Z.Message, { role: 'assistant' }, h(Z.NoSource, { suggestion: 'Zakres temperatur przechowywania jest w ulotce leku. Jeśli jej nie masz, zapytaj farmaceutę.' }))
+    )
+  );
+</script>
+</body>
+</html>

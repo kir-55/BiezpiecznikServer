@@ -1,0 +1,34 @@
+<!-- @dsCard group="Szablony czatu" height=330 subtitle="bullets — lista, opcjonalnie do odhaczania" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>BulletsPanel</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 20px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .col { display: grid; gap: 12px; align-content: start; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: start; }
+  .lbl { font-size: 12px; line-height: 16px; color: var(--ink-300); }
+  .w360 { max-width: 360px; } .w420 { max-width: 420px; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement, I = function (n, s) { return h(Z.Icon, { name: n, size: s }); };
+  var noop = function () {};
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap grid2' },
+      h(Z.BulletsPanel, { title: 'Do plecaka', checkable: true, defaultDone: [0], items: [
+        { text: 'Woda pitna', source: { docShort: 'Poradnik bezp.', page: 22, onClick: noop } },
+        { text: 'Latarka i baterie', source: { docShort: 'Poradnik bezp.', page: 22, onClick: noop } },
+        { text: 'Leki na 3 dni', source: { docShort: 'Poradnik bezp.', page: 23, onClick: noop } } ] }),
+      h(Z.BulletsPanel, { title: 'Czego unikać', items: [
+        { text: 'Agregatu w zamkniętym pomieszczeniu', source: { docShort: 'Nim nadejdzie…', docTitle: 'Nim nadejdzie dzień', page: 9, onClick: noop } },
+        { text: 'Grzania kuchenką gazową', source: { docShort: 'Nim nadejdzie…', docTitle: 'Nim nadejdzie dzień', page: 9, onClick: noop } } ] }))
+  );
+</script>
+</body>
+</html>

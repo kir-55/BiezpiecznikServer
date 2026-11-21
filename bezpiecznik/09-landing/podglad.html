@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan landingu Bezpiecznika</title>
+<style>
+/* VOICE: calm product plan for the team, benefits first, honest about blockers.
+   IDEA: the plan is set like Bezpiecznik itself, a quiet dark room with one ochre lamp.
+   PICTURE: the live rotating headline, then the real app screens beside their polish notes.
+   COLOUR and TYPE: Bezpiecznik tokens only; Atkinson Hyperlegible Next from local files.
+   LAYOUT: hero with headline demo, page outline, screens grid, blockers, decisions. */
+@font-face{font-family:"Atkinson";src:url(fonts/atkinson-hyperlegible-next-latin-ext-wght-normal.woff2) format("woff2");font-weight:200 800;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Atkinson";src:url(fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2) format("woff2");font-weight:200 800;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{color-scheme:dark;--bg0:#100f0e;--bg1:#181715;--bg2:#21201d;--line1:#282623;--line15:#3a3732;--ink1:#eeece6;--ink2:#a9a59d;--ink3:#8a867f;--signal:#c9a66b;--signal-tint:#241f16;--verified:#8db89e;--verified-tint:#18211c;--sos:#a8433b;--sos-text:#e0857b;--sos-tint:#261816}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg0);color:var(--ink1);font:17px/1.6 "Atkinson",system-ui,sans-serif;overflow-x:clip}
+a{color:var(--ink1);text-decoration-color:var(--line15);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(5vw,16px)}
+.band{padding:clamp(36px,5vw,72px) 0;border-top:1px solid var(--line1)}
+h2{font-size:clamp(26px,3vw,32px);line-height:1.15;margin:0 0 8px;text-wrap:balance}
+h3{font-size:20px;line-height:1.25;margin:0 0 6px}
+p{margin:0 0 12px;max-width:68ch}
+.muted{color:var(--ink2)}.small{font-size:14px;color:var(--ink3)}
+code{font-size:.9em;background:var(--bg2);padding:1px 6px;border-radius:6px}
+/* hero */
+header{padding:clamp(32px,6vw,80px) 0 clamp(36px,5vw,64px)}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink2);font-size:15px;margin-bottom:clamp(28px,5vw,56px)}
+.brand i{width:10px;height:10px;border-radius:50%;background:var(--signal);box-shadow:0 0 18px #c9a66b80}
+.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(24px,4vw,56px);align-items:center}
+.mock{background:var(--bg1);border:1px solid var(--line1);border-radius:28px;padding:clamp(24px,4vw,44px)}
+h1{font-size:clamp(34px,5.2vw,56px);line-height:1.06;margin:0 0 16px;font-weight:700;letter-spacing:-.015em;color:var(--ink2)}
+.slot{display:inline-grid;justify-items:start;vertical-align:bottom;color:var(--ink1)}
+.slot>span{grid-area:1/1;transition:opacity .3s cubic-bezier(.4,0,.2,1),transform .3s cubic-bezier(.4,0,.2,1)}
+.slot>span.off{opacity:0;transform:translateY(4px)}
+.sub{font-size:clamp(17px,1.6vw,20px);color:var(--ink2);max-width:40ch}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin:22px 0 14px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;background:var(--ink1);color:var(--bg0);font:inherit;font-weight:700;border:0}
+.link{color:var(--ink1);font-size:16px}
+.fine{font-size:14px;color:var(--ink3)}
+.replay{margin-top:18px;background:none;border:1px solid var(--line15);color:var(--ink2);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer;min-height:36px}
+.replay:hover{background:#eeece614}
+.side p{font-size:15px;color:var(--ink2)}
+.side b{color:var(--ink1)}
+.words{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 16px}
+.w{font-size:14px;padding:3px 12px;border-radius:999px;border:1px solid var(--line15);color:var(--ink1)}
+.w.r{color:var(--ink3);border-style:dashed}
+.chip{display:inline-flex;font-size:13px;padding:2px 10px;border-radius:999px;background:var(--verified-tint);color:var(--verified);margin:2px 4px 2px 0;white-space:nowrap}
+.chip.c{background:var(--signal-tint);color:var(--signal)}
+/* outline */
+.outline{display:grid;gap:10px;margin-top:22px}
+.sec{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr) minmax(0,.9fr);gap:16px;background:var(--bg1);border:1px solid var(--line1);border-radius:18px;padding:16px 18px;align-items:start}
+.sec h4{margin:0;font-size:18px}
+.sec h4 small{display:block;font-weight:400;font-size:14px;color:var(--ink3)}
+.sec p{margin:0;font-size:15px;color:var(--ink2)}
+.sec p q{color:var(--ink1);quotes:"„" "”"}
+/* screens */
+.screens{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:16px;margin-top:22px}
+.scr{display:grid;grid-template-columns:132px minmax(0,1fr);gap:16px;background:var(--bg1);border:1px solid var(--line1);border-radius:18px;padding:14px}
+.scr img{width:132px;height:auto;border-radius:14px;border:1px solid var(--line15);display:block}
+.scr h3{font-size:17px}
+.scr .k{font-size:13px;font-weight:700;color:var(--ink3);margin:8px 0 2px}
+.scr p{font-size:14px;margin:0;color:var(--ink2)}
+.scr p.to{color:var(--ink1)}
+.scr .ben{font-size:13px;color:var(--signal);margin-top:2px}
+.rules{margin:18px 0 0;padding-left:20px;color:var(--ink2);font-size:16px}
+.rules li{margin-bottom:6px}.rules li::marker{color:var(--signal)}
+/* blockers / decisions */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;margin-top:20px}
+.card{background:var(--bg1);border:1px solid var(--line1);border-radius:18px;padding:18px}
+.card h4{margin:0 0 6px;font-size:18px}
+.card p{font-size:15px;color:var(--ink2);margin:0}
+.card.warn{background:var(--sos-tint);border-color:#3a2420}.card.warn h4{color:var(--sos-text)}
+.dec{counter-reset:d;display:grid;gap:10px;margin-top:20px}
+.dec .card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:14px}
+.dec .rec{font-size:14px;color:var(--signal)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:10px;margin-top:20px}
+.step{background:var(--bg1);border:1px solid var(--line1);border-radius:12px;padding:14px}
+.step b{display:block;font-size:16px;margin-bottom:4px}
+.step span{font-size:14px;color:var(--ink2)}
+footer{padding:36px 0 60px;border-top:1px solid var(--line1)}
+@media(max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}.sec{grid-template-columns:minmax(0,1fr);gap:6px}.dec .card{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:400px){.scr{grid-template-columns:96px minmax(0,1fr)}.scr img{width:96px}}
+@media(prefers-reduced-motion:reduce){.slot>span{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="brand"><i></i>Bezpiecznik · plan landingu · 21.11.2026 · branch landing-page</div>
+  <div class="hero">
+    <div class="mock" aria-label="Podgląd pierwszego ekranu landingu">
+      <h1>Aplikacja, która ratuje <span class="slot" id="slot"><span aria-hidden="true" class="off">zdrowie.</span><span aria-hidden="true" class="off">bliskich.</span><span>życie.</span></span></h1>
+      <p class="sub">Mówi, co zrobić teraz: krok po kroku, z oficjalnych poradników. Działa bez internetu.</p>
+      <div class="cta"><span class="btn">Pobierz na Androida</span><a class="link" href="#strona">Zobacz, jak działa ↓</a></div>
+      <div class="fine">Bezpłatnie · Bez konta · Nie zastępuje 112</div>
+      <button class="replay" id="replay" type="button">Odtwórz zmianę słowa</button>
+    </div>
+    <div class="side">
+      <h2 style="font-size:24px">Hasło</h2>
+      <p>Ostatnie słowo zmienia się <b>raz</b> i zatrzymuje na „życie”. Każde stoi 2,4 s, przejście to przenikanie 300 ms. Bez pętli, bo ruch w naszym DS nie zabiega o uwagę.</p>
+      <div class="words"><span class="w">życie</span><span class="w">zdrowie</span><span class="w">bliskich</span><span class="w">życie</span><span class="w r">sąsiadów</span><span class="w r">sytuację</span></div>
+      <p>Czytnik ekranu i strona bez JS dostają pełne zdanie „…ratuje życie”. Przy ograniczonym ruchu słowo stoi od razu.</p>
+      <p><b>Uczciwa obudowa:</b> Zasady zabraniają określeń typu „AI ratownik”, więc obok hasła zawsze stoją „jak” (oficjalne poradniki) i „Nie zastępuje 112”. Wariant zapasowy: „pomaga ratować życie”.</p>
+    </div>
+  </div>
+</header>
+
+<section class="band" id="strona"><div class="wrap">
+  <h2>Strona od góry do dołu</h2>
+  <p class="muted">Mobile-first, bo APK instaluje się na telefonie. Każda sekcja mówi korzyść i ma komponent z naszego design systemu.</p>
+  <div class="outline" id="outline"></div>
+  <p class="small" style="margin-top:8px"><span class="chip c">ochra</span> inspiracja z researchu · <span class="chip">szałwia</span> komponent DS</p>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>Ekrany aplikacji: dziś i po dopracowaniu</h2>
+  <p class="muted">Prawdziwe zrzuty z 21.11 rano. Dopracowanie jest delikatne: ta sama aplikacja, ciszej i równiej. Na landingu pokazujemy wersję po zmianach, a potem wyrównujemy do niej Fluttera.</p>
+  <ul class="rules">
+    <li>Mniej linii: karty na tle <code>bg-100</code>, bez ramek albo z ramką <code>line-100</code>.</li>
+    <li>Ikony jednym kolorem <code>ink-200</code>. Czerwień tylko dla SOS i 112.</li>
+    <li>Liczby większe, cyframi tabelarycznymi. Wyspa i SOS zostają bez zmian.</li>
+    <li>Treść na ekranach tylko z prawdziwych odpowiedzi aplikacji. Znaczek „Do weryfikacji” zostaje, dopóki karta nie jest zweryfikowana.</li>
+  </ul>
+  <div class="screens" id="screens"></div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>Blokery przed publikacją</h2>
+  <div class="grid2">
+    <div class="card warn"><h4>Model AI nie dotrze do użytkownika</h4><p>APK waży 178 MB (z mapą), ale nie zawiera modelu 2,6 GB. Dziś model wgrywa się przez <code>adb</code>. Potrzebne jest pobieranie modelu w aplikacji przez Wi-Fi albo start w „Trybie bez AI”. Bez tego demo z sekcji 3 obiecuje coś, czego użytkownik nie dostanie.</p></div>
+    <div class="card warn"><h4>Karty „Do weryfikacji”</h4><p>Hasło „ratuje życie” obok niezweryfikowanej karty RKO to ryzyko. Treść kart musi sprawdzić osoba z uprawnieniami.</p></div>
+    <div class="card"><h4>Domena i hosting</h4><p>Wciąż otwarte w specyfikacji dystrybucji. Kandydat: <code>bezpiecznik.edu.pl</code>, z krótkim adresem <code>/pobierz</code> pod kod QR.</p></div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>Do decyzji</h2>
+  <div class="dec" id="dec"></div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>Kolejność prac, gdy ruszymy</h2>
+  <div class="steps" id="steps"></div>
+  <p class="small" style="margin-top:14px">Technologia: statyczna strona w <code>web/</code>, ekrany telefonów prerenderowane z komponentów DS (React) do HTML, treść widoczna bez JS, bez ciasteczek i analityki, pierwszy ekran poniżej 200 KB. W DS dochodzi token <code>display</code> na nagłówki (34/38 na telefonie, 52/56 na desktopie).</p>
+</div></section>
+
+<footer><div class="wrap">
+  <p class="small">Pełny plan: <code>bezpiecznik/09-landing/README.md</code> na branchu <code>landing-page</code> (worktree <code>Bezpiecznik-landing</code>). Poza zakresem: wersja angielska, blog, iOS, statystyki z ciasteczkami.</p>
+</div></footer>
+
+<script>
+{
+const outline=[
+ ["Pasek górny","logo + „Pobierz”","Logo po lewej, mała pigułka „Pobierz” po prawej. Bez menu, na telefonie nieprzyklejony.",[],["Logo"]],
+ ["Hero","pierwszy ekran","<q>Aplikacja, która ratuje życie.</q> Podtytuł mówi, jak ratuje. Jeden przycisk, link „Zobacz, jak działa”, linia „Nie zastępuje 112”. Obok telefon z ekranem A.",["Calmaria","Claude Download"],["Button"]],
+ ["Demo czatu","zapytaj, jak człowieka","<q>Opisz, co się dzieje. Bezpiecznik powie, co robić.</q> Te same 4 chipy co w aplikacji. Dotknięcie pokazuje nagraną, prawdziwą odpowiedź ze źródłem i stroną.",["openai.com"],["Composer","QuickActions","StepsPanel","SourceChip"]],
+ ["Korzyści","5 bloków z ekranami","<q>Prowadzi przez RKO, gdy trzęsą się ręce.</q> <q>Odpowiada z poradników, nie z głowy.</q> <q>Działa, gdy znika internet.</q> <q>Zna twój dom.</q> <q>Jedno dotknięcie do pomocy.</q>",["ChatGPT overview","Linear"],["ekrany A–F"]],
+ ["Prywatność","2 kolumny","<q>Nic nie wychodzi z telefonu.</q> | <q>Nie zgaduje.</q> Pod spodem: <q>Bez konta. Bez reklam. Bez internetu.</q>",["Cozy","Calmaria","Signal"],["SectionHeader"]],
+ ["Źródła","tekstem, bez logo","Nazwy poradników (RCB/MON/MSWiA, Akademia Pożarnicza, PSP, PRC/ERC, OSM). Linia: <q>Bezpiecznik nie jest aplikacją rządową.</q>",[],["ListRow"]],
+ ["Pobierz","Android + QR","Karta APK (wersja, rozmiar, SHA-256) i karta QR z krótkim adresem tekstem. Na Androidzie QR znika, na iPhonie: <q>Na razie tylko Android.</q>",["Claude Download","ChatGPT Download"],["Button","ListRow"]],
+ ["Instalacja","3 kroki","Pobierz i otwórz, zezwól na instalację, dotknij „Zainstaluj”. Każdy krok z prawdziwym zrzutem z Androida.",[],["StepsPanel"]],
+ ["Pytania","6, akordeon","Bezpieczeństwo APK, działanie bez internetu, miejsce, 112, skąd odpowiedzi, iPhone.",["Claude Download"],["ListRow"]],
+ ["Zamknięcie","hasło z filmu","<q>Internet znika pierwszy. Bezpiecznik zostaje.</q> Ten sam przycisk co w hero, stopka z zastrzeżeniem o 112.",[],["Button"]]
+];
+document.getElementById('outline').innerHTML=outline.map(([t,s,d,ins,ds])=>`<div class="sec"><h4>${t}<small>${s}</small></h4><p>${d}</p><div>${ins.map(x=>`<span class="chip c">${x}</span>`).join('')}${ds.map(x=>`<span class="chip">${x}</span>`).join('')}</div></div>`).join('');
+
+const screens=[
+ ["a-start","A. Start „Co się dzieje?”","Hero","4 kafelki z ramkami, czerwone serce na „Ktoś nie oddycha”.","Kafelki bez ramek, ikony ink-200, więcej oddechu nad nagłówkiem."],
+ ["b-odpowiedz","B. Odpowiedź ze źródłem","Odpowiada z poradników","Odpowiedź o pożarze z chipem „Poradnik RCB 2025, s. 31”.","Spokojniejszy temat (blackout), numerowane kroki, kadr ze stroną PDF."],
+ ["c-rko","C. Karta RKO","Prowadzi przez RKO","Gęsto: 112, bliscy, kontakty, GPS, 999/998/997, instruktor.","Instruktor w trakcie. 999/998/997 widoczne, ale jednym cichym rzędem. Kontakty i GPS pod „Więcej”."],
+ ["d-sos","D. Panel SOS","Jedno dotknięcie do pomocy","Dobry: 112 pierwsze, Powiadom bliskich, przełącznik profilu.","Bez zmian poza ramkami."],
+ ["e-kompas","E. Kompas do schronu","Działa bez internetu","Biała strzałka, „Punkt bez nazwy”, ucięte „Pokaż …” (zrzut przy bardzo dużym tekście).","Igła w ochrze (signal), większe metry, adres z OSM zamiast „bez nazwy”."],
+ ["f-profil","F. Profil domu","Zna twój dom","Lista liczników domowników.","Grupy w kartach, ikony ink-300. W kadrze: niemowlę, insulina, 7. piętro."]
+];
+document.getElementById('screens').innerHTML=screens.map(([f,t,b,now,to])=>`<div class="scr"><img src="ekrany/${f}.jpg" alt="Obecny ekran aplikacji: ${t}" loading="lazy"><div><h3>${t}</h3><div class="ben">Sekcja: ${b}</div><div class="k">Dziś</div><p>${now}</p><div class="k">Po dopracowaniu</div><p class="to">${to}</p></div></div>`).join('');
+
+const dec=[
+ ["Hasło","„ratuje życie”, jak chcesz, czy „pomaga ratować życie”, bezpieczniej wobec Zasad. Do tego kolejność słów.","Zostawiamy „ratuje”, ale tylko z podtytułem i linią „Nie zastępuje 112”."],
+ ["Ekrany na landingu","Makiety HTML z komponentów DS czy zrzuty z emulatora.","Makiety z DS: ostre w każdej skali, a landing staje się wzorcem dla aplikacji. Treść z prawdziwych odpowiedzi."],
+ ["Model AI","Pobieranie modelu w aplikacji przez Wi-Fi czy start w trybie bez AI.","Pobieranie w aplikacji. Bez niego obietnica z dema nie jest prawdziwa."],
+ ["Etykiety 112","Zostają wielkie litery „ZADZWOŃ 112” czy zdaniowe „Zadzwoń pod 112”.","Zdaniowe: spokojniej i spójnie z resztą DS. Do sprawdzenia na teście czytelności."],
+ ["Domena","bezpiecznik.edu.pl, jak nazwa repozytorium?","Tak, z krótkim adresem /pobierz pod kod QR."]
+];
+document.getElementById('dec').innerHTML=dec.map(([t,q,r])=>`<div class="card"><div><h4>${t}</h4><p>${q}</p></div><p class="rec">Rekomendacja: ${r}</p></div>`).join('');
+
+const steps=[["1. Teksty","Akceptacja hasła i tekstów sekcji"],["2. Ekrany A–F","6 makiet 390 × 844 z DS, prawdziwa treść"],["3. Strona w web/","Wszystkie sekcje, 390 / 768 / 1440 px"],["4. Pobieranie","Platforma, QR, SHA-256, zrzuty instalacji"],["5. Kontrola","Bez JS, ograniczony ruch, kontrast AA, czytnik"],["6. Aplikacja","Zmiany z ekranów we Flutterze"]];
+document.getElementById('steps').innerHTML=steps.map(([b,s])=>`<div class="step"><b>${b}</b><span>${s}</span></div>`).join('');
+
+const slot=document.getElementById('slot'),items=[...slot.children];
+const order=[0,1,2]; // zdrowie, bliskich, życie (stop)
+let timers=[];
+const show=i=>items.forEach((el,j)=>el.classList.toggle('off',j!==i));
+const play=()=>{
+  timers.forEach(clearTimeout);timers=[];
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){show(2);return}
+  show(2);
+  [[2400,0],[4800,1],[7200,2]].forEach(([t,i])=>timers.push(setTimeout(()=>show(i),t)));
+};
+document.getElementById('replay').addEventListener('click',play);
+play();
+}
+</script>
+</body>
+</html>

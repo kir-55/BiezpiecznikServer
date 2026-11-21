@@ -1,0 +1,33 @@
+<!-- @dsCard group="Szablony czatu" height=470 subtitle="cpr — instruktor RKO przed startem i przypięty" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>CprPinned</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 20px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .col { display: grid; gap: 12px; align-content: start; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: start; }
+  .lbl { font-size: 12px; line-height: 16px; color: var(--ink-300); }
+  .w360 { max-width: 360px; } .w420 { max-width: 420px; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement, I = function (n, s) { return h(Z.Icon, { name: n, size: s }); };
+  var noop = function () {};
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap grid2' },
+      h('div', { className: 'col' },
+        h(Z.CprCard, { variantLabel: 'Dorosły', rate: 110, ratio: '30:2', onStart: noop, source: { docShort: 'PRC/ERC 2025', page: 14, onClick: noop } }),
+        h(Z.CprCard, { state: 'running', rate: 110 }),
+        h('div', { className: 'lbl' }, 'z otwartą klawiaturą'),
+        h(Z.CprPinned, { compact: true, rate: 110, count: 17, total: 30, elapsed: '3:42', onPause: noop })),
+      h(Z.CprPinned, { variantLabel: 'Dorosły', rate: 110, count: 17, total: 30, elapsed: '3:42', changeIn: '0:18', aedReminder: true, onPause: noop, onEnd: noop, onAedHelp: noop }))
+  );
+</script>
+</body>
+</html>

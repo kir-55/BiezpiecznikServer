@@ -1,0 +1,20 @@
+<!-- @dsCard group="Bezpieczeństwo" height=300 subtitle="Tylko zagrożenie życia — z sugestią" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Fallback112</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 16px; max-width: 520px; }
+  .row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap' }, h(Z.Fallback112, { hint: 'Nie zostawiaj poszkodowanego samego. Włącz głośnik w telefonie — dyspozytor powie Ci, co robić.' }, 'Osoba nie reaguje i nie oddycha prawidłowo — to stan zagrożenia życia.'))
+  );
+</script>
+</body>
+</html>

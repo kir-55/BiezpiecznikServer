@@ -1,0 +1,24 @@
+<!-- @dsCard group="Czat" height=260 subtitle="Co zrobić teraz — max 3 kroki" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Steps</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 16px; max-width: 560px; }
+  .row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap' }, h(Z.Steps, { items: [
+      { title: 'Zakręć gaz i wyłącz prąd', detail: 'Tylko jeśli możesz zrobić to bezpiecznie.' },
+      { title: 'Weź plecak ewakuacyjny i leki', detail: 'Dokumenty, woda, latarka, leki na 3 dni.' },
+      { title: 'Idź do najbliższego schronu', detail: '640 m · 8 min pieszo · trasa na mapie offline.' }
+    ] }))
+  );
+</script>
+</body>
+</html>

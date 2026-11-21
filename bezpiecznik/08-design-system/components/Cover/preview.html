@@ -1,0 +1,28 @@
+<!-- @dsCard height=288 -->
+<div class="cover">
+<svg class="art" viewBox="0 0 960 288" width="960" height="288" aria-hidden="true">
+<!--
+blocks: ink-100 144x288 slab (the ChatGPT-like neutral identity, bleeds top+bottom), bg-300 192x192, signal 96x96 (muted ochre, the one brand hue), verified 48x96, sos 48x48 (smallest: a state)
+arrangement: one tall light slab with graphite and ochre satellites, flush 48px modular grid, all right of x=480
+pattern: plus/crosshair grid ("precise, technical" + offline map, GPS, kompas) - bg-300 cut into the ink slab, signal on graphite; 20 units
+scales: 48px module and pitch (2x the 24px rhythm of title/chat leading), 12px plus arms; square corners - bunker, no radius tokens yet
+-->
+<rect class="b-ink" x="624" y="0" width="96" height="288"/>
+<rect class="b-graph" x="768" y="96" width="96" height="192"/>
+<rect class="b-signal" x="864" y="0" width="96" height="96"/>
+<rect class="b-ver" x="864" y="192" width="48" height="96"/>
+<rect class="b-sos" x="912" y="240" width="48" height="48"/>
+<path class="p-on-ink" d="M642 24h12M648 18v12"/><path class="p-on-ink" d="M642 72h12M648 66v12"/><path class="p-on-ink" d="M642 120h12M648 114v12"/><path class="p-on-ink" d="M642 168h12M648 162v12"/><path class="p-on-ink" d="M642 216h12M648 210v12"/><path class="p-on-ink" d="M642 264h12M648 258v12"/><path class="p-on-ink" d="M690 24h12M696 18v12"/><path class="p-on-ink" d="M690 72h12M696 66v12"/><path class="p-on-ink" d="M690 120h12M696 114v12"/><path class="p-on-ink" d="M690 168h12M696 162v12"/><path class="p-on-ink" d="M690 216h12M696 210v12"/><path class="p-on-ink" d="M690 264h12M696 258v12"/><path class="p-on-g" d="M786 120h12M792 114v12"/><path class="p-on-g" d="M786 168h12M792 162v12"/><path class="p-on-g" d="M786 216h12M792 210v12"/><path class="p-on-g" d="M786 264h12M792 258v12"/><path class="p-on-g" d="M834 120h12M840 114v12"/><path class="p-on-g" d="M834 168h12M840 162v12"/><path class="p-on-g" d="M834 216h12M840 210v12"/><path class="p-on-g" d="M834 264h12M840 258v12"/>
+</svg>
+<div class="txt"><div class="name">Bezpiecznik</div><div class="tag">Co zrobić teraz — bez zasięgu, tylko ze źródeł oficjalnych.</div></div>
+</div>
+<style>
+html,body{margin:0;background:var(--bg-000)}
+.cover{position:relative;width:960px;height:288px;background:var(--bg-000);overflow:hidden}
+.art{position:absolute;inset:0;display:block}
+.b-graph{fill:var(--bg-300)}.b-signal{fill:var(--signal)}.b-ink{fill:var(--ink-100)}.b-ver{fill:var(--verified)}.b-sos{fill:var(--sos)}
+.p-on-g{stroke:var(--signal);stroke-width:2;fill:none}.p-on-ink{stroke:var(--bg-300);stroke-width:2;fill:none}
+.txt{position:absolute;left:40px;bottom:36px;max-width:440px}
+.name{font-family:var(--font-sans);font-weight:800;font-size:64px;line-height:.92;letter-spacing:-0.02em;color:var(--ink-100)}
+.tag{margin-top:12px;font-family:var(--font-sans);font-size:14px;line-height:20px;color:var(--ink-200)}
+</style>

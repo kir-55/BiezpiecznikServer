@@ -1,0 +1,46 @@
+<!-- @dsCard group="Kontrolki" height=560 subtitle="Pola, przełączniki, wybory, wiersze" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Controls</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 20px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .col { display: grid; gap: 12px; align-content: start; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: start; }
+  .lbl { font-size: 12px; line-height: 16px; color: var(--ink-300); }
+  .w360 { max-width: 360px; } .w420 { max-width: 420px; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement, I = function (n, s) { return h(Z.Icon, { name: n, size: s }); };
+  var noop = function () {};
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap grid2' },
+      h('div', { className: 'col' },
+        h('div', { className: 'lbl' }, 'Checkbox · Switch'),
+        h('div', { className: 'row', style: { gap: 24 } }, h(Z.Checkbox, { 'aria-label': 'a' }), h(Z.Checkbox, { defaultChecked: true, 'aria-label': 'b' }), h(Z.Switch, { 'aria-label': 'c' }), h(Z.Switch, { defaultChecked: true, 'aria-label': 'd' }), h(Z.Switch, { disabled: true, 'aria-label': 'e' })),
+        h('div', { className: 'lbl' }, 'Segmented'),
+        h(Z.Segmented, { options: [{ id: 'adult', label: 'Dorosły' }, { id: 'child', label: 'Dziecko' }, { id: 'infant', label: 'Niemowlę' }], fullWidth: true }),
+        h('div', { className: 'row' }, h(Z.Segmented, { allowEmpty: true, defaultValue: null, options: [{ id: 'y', label: 'Tak' }, { id: 'n', label: 'Nie' }] }), h('span', { className: 'lbl' }, 'trójstanowe Tak / Nie (nic = brak danych)')),
+        h('div', { className: 'lbl' }, 'ChoiceChips — jedno i wielokrotny wybór'),
+        h(Z.ChoiceChips, { defaultValue: 'adult', options: [{ id: 'infant', label: 'Niemowlę' }, { id: 'child', label: 'Dziecko' }, { id: 'adult', label: 'Dorosły' }, { id: 'senior', label: 'Senior' }] }),
+        h(Z.ChoiceChips, { multiple: true, defaultValue: ['motor'], options: [{ id: 'motor', label: 'ruchowa' }, { id: 'vision', label: 'wzroku' }, { id: 'hearing', label: 'słuchu' }] }),
+        h('div', { className: 'lbl' }, 'ProgressBar'), h(Z.ProgressBar, { value: 48 })),
+      h('div', { className: 'col' },
+        h(Z.TextField, { label: 'Nazwa leku', defaultValue: 'Insulina' }),
+        h(Z.TextField, { label: 'Numer', defaultValue: '112', error: 'Tu wpisz numer bliskiej osoby, nie numer alarmowy.' }),
+        h(Z.TextField, { label: 'Zapas', defaultValue: '14', suffix: 'dni', inputMode: 'numeric', hint: '0–365' }),
+        h('div', null, h(Z.SectionHeader, null, 'Wygląd'),
+          h(Z.ListRow, { label: 'Motyw', value: 'Systemowy', onClick: noop }),
+          h(Z.ListRow, { label: 'Ograniczenie ruchu', trailing: h(Z.Switch, { 'aria-label': 'Ograniczenie ruchu' }) }),
+          h(Z.ListRow, { label: 'Profil domu', sub: 'Uzupełniono 5 z 8', icon: I('house'), onClick: noop }),
+          h(Z.ListRow, { label: 'Usuń wszystkie czaty', tone: 'danger', icon: I('trash-2'), onClick: noop, chevron: false }))))
+  );
+</script>
+</body>
+</html>

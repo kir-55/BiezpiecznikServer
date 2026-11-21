@@ -1,0 +1,75 @@
+<!-- @dsCard group="Fundamenty" height=560 subtitle="Animacje — kliknij, aby odtworzyć" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Motion</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 16px; max-width: 720px; }
+  .bar { display: flex; gap: 8px; flex-wrap: wrap; }
+  .stage { position: relative; height: 420px; border: 1px solid var(--line-100); border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-000); }
+  .chat { padding: 20px; display: grid; gap: 20px; align-content: start; }
+  .menu { position: absolute; left: 20px; bottom: 76px; width: 220px; padding: 6px; border-radius: var(--radius-md); background: var(--bg-200); border: 1px solid var(--line-150); display: grid; }
+  .menu div { padding: 8px 10px; border-radius: var(--radius-sm); font-size: 14px; }
+  .menu div:hover { background: var(--overlay-hover); }
+  .scrim { position: absolute; inset: 0; background: #0006; }
+  .sheet { position: absolute; left: 0; right: 0; bottom: 0; height: 60%; background: var(--bg-100); border-top-left-radius: var(--radius-xl); border-top-right-radius: var(--radius-xl); border-top: 1px solid var(--line-150); padding: 12px 20px; }
+  .grab { width: 36px; height: 5px; border-radius: 99px; background: var(--line-200); margin: 0 auto 16px; }
+  .meta { font-size: 12px; color: var(--ink-300); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement, useState = React.useState, useEffect = React.useEffect;
+  var ANSWER = 'Zamknij lodówkę i nie otwieraj jej bez potrzeby. Przygotuj torbę chłodzącą na leki. Ogrzej jedno pomieszczenie i ubierz dziecko warstwowo.';
+
+  function Demo() {
+    var s = useState({ k: 0, mode: 'chat' }), st = s[0], set = s[1];
+    var w = useState(0), words = w[0], setWords = w[1];
+    var ph = useState('idle'), phase = ph[0], setPhase = ph[1];
+    var all = ANSWER.split(' ');
+
+    useEffect(function () {
+      if (st.mode !== 'chat') return;
+      setWords(0); setPhase('think');
+      var t1 = setTimeout(function () { setPhase('stream'); }, 1600);
+      return function () { clearTimeout(t1); };
+    }, [st.k, st.mode]);
+    useEffect(function () {
+      if (phase !== 'stream' || words >= all.length) return;
+      var t = setTimeout(function () { setWords(words + 1); }, 55);
+      return function () { clearTimeout(t); };
+    }, [phase, words]);
+
+    function run(mode) { set({ k: st.k + 1, mode: mode }); }
+
+    return h('div', { className: 'wrap' },
+      h('div', { className: 'bar' },
+        h(Z.Button, { size: 'sm', variant: st.mode === 'chat' ? 'primary' : 'secondary', onClick: function () { run('chat'); } }, 'Wiadomość + strumień'),
+        h(Z.Button, { size: 'sm', variant: st.mode === 'menu' ? 'primary' : 'secondary', onClick: function () { run('menu'); } }, 'Menu'),
+        h(Z.Button, { size: 'sm', variant: st.mode === 'sheet' ? 'primary' : 'secondary', onClick: function () { run('sheet'); } }, 'Panel od dołu')
+      ),
+      h('div', { className: 'stage', key: st.k },
+        h('div', { className: 'chat' },
+          h(Z.Message, { role: 'user' }, 'Prąd wysiadł, mam niemowlę i leki w lodówce.'),
+          st.mode === 'chat' && phase === 'think' ? h(Z.Thinking, { label: 'Szukam w Poradniku bezpieczeństwa…' }) : null,
+          st.mode !== 'chat' || phase === 'stream'
+            ? h(Z.Message, { role: 'assistant', sources: (st.mode !== 'chat' || words >= all.length) ? h('span', { className: 'bz-anim-fade' }, h(Z.SourceChip, { source: 'RCB', page: 34 })) : null },
+                (st.mode === 'chat' ? all.slice(0, words) : all).map(function (wd, i) { return h('span', { key: i, className: st.mode === 'chat' ? 'bz-anim-stream' : '' }, wd + ' '); }))
+            : null
+        ),
+        st.mode === 'menu' ? h('div', { className: 'menu bz-anim-pop', style: { '--bz-origin': 'bottom left' } },
+          h('div', null, 'Pokaż na mapie'), h('div', null, 'Otwórz źródło'), h('div', null, 'Dodaj do planu 72h')) : null,
+        st.mode === 'sheet' ? h(React.Fragment, null,
+          h('div', { className: 'scrim bz-anim-scrim' }),
+          h('div', { className: 'sheet bz-anim-sheet-in' }, h('div', { className: 'grab' }),
+            h('div', { style: { fontWeight: 700, fontSize: 18 } }, 'Schron · 640 m'),
+            h('div', { className: 'meta' }, 'duration-slow 300ms · ease-sheet'))) : null
+      ),
+      h('div', { className: 'meta' }, 'Wiadomość: enter 200ms ease-out · Strumień: fade 300ms na każde słowo · Menu: pop 150ms ease-out · Panel: 300ms ease-sheet')
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(Demo));
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!-- @dsCard group="Panele" height=560 subtitle="E0 i E4 — kroki, paczki, pytania profilu" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Onboarding</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 20px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .col { display: grid; gap: 12px; align-content: start; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: start; }
+  .lbl { font-size: 12px; line-height: 16px; color: var(--ink-300); }
+  .w360 { max-width: 360px; } .w420 { max-width: 420px; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement, I = function (n, s) { return h(Z.Icon, { name: n, size: s }); };
+  var noop = function () {};
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap grid3' },
+      h('div', { className: 'col' }, h(Z.StepHeader, { title: 'Paczki', step: 3, total: 4 }),
+        h('div', null,
+          h(Z.PackageRow, { name: 'Baza wiedzy', size: '38 MB', state: 'done', hint: 'Bez niej czat pokaże tylko karty ratunkowe.' }),
+          h(Z.PackageRow, { name: 'Model AI', size: '1,3 GB', state: 'downloading', progress: 48, onPause: noop, hint: 'Bez modelu czat działa w trybie bez AI: pokazuje fragmenty poradników.' }),
+          h(Z.PackageRow, { name: 'Mapa Polski', size: '64 MB', state: 'done', selectable: false }),
+          h(Z.PackageRow, { name: 'Zachodniopomorskie', size: '112 MB', state: 'error', onRetry: noop }))),
+      h('div', { className: 'col' }, h(Z.StepHeader, { title: 'Profil domu', step: 3, total: 8 }),
+        h(Z.QuestionStep, { question: 'Czy ktoś w domu bierze leki na stałe?', onYes: noop, onNo: noop, onSkip: noop })),
+      h('div', { className: 'col' }, h(Z.StepHeader, { title: 'Leki', step: 3, total: 8 }),
+        h(Z.TextField, { label: 'Nazwa leku', defaultValue: 'Insulina' }),
+        h('div', { className: 'row', style: { justifyContent: 'space-between' } }, h('span', null, 'Wymaga lodówki'), h(Z.Segmented, { allowEmpty: true, defaultValue: 'y', options: [{ id: 'y', label: 'Tak' }, { id: 'n', label: 'Nie' }] })),
+        h(Z.TextField, { label: 'Zapas', defaultValue: '14', suffix: 'dni', inputMode: 'numeric' }),
+        h(Z.Button, { variant: 'ghost', icon: I('plus') }, 'Dodaj lek'),
+        h(Z.Button, { variant: 'primary', size: 'lg', fullWidth: true }, 'Dalej')))
+  );
+</script>
+</body>
+</html>

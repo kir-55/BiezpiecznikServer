@@ -1,0 +1,33 @@
+<!-- @dsCard group="Mapa" height=560 subtitle="Prowadzenie i kompas" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Route</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 20px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .col { display: grid; gap: 12px; align-content: start; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: start; }
+  .lbl { font-size: 12px; line-height: 16px; color: var(--ink-300); }
+  .w360 { max-width: 360px; } .w420 { max-width: 420px; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement, I = function (n, s) { return h(Z.Icon, { name: n, size: s }); };
+  var noop = function () {};
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap grid2' },
+      h('div', { className: 'col' },
+        h(Z.RouteBanner, { turn: 'right', distance: 120, street: 'ul. Lipową' }),
+        h(Z.RouteBanner, { turn: 'slight-left', distance: 40 }),
+        h('div', { style: { marginTop: 40 } }, h(Z.RouteBar, { distance: 450, time: 6, onSteps: noop, onCompass: noop, onEnd: noop }))),
+      h('div', { style: { borderRadius: 18, overflow: 'hidden', border: '1px solid var(--line-100)' } },
+        h(Z.CompassView, { target: 'Schron, ul. Lipowa 5', distance: 350, bearing: 45, rotation: 32, coords: '53.42850, 14.55280', onShowMap: noop, onEnd: noop })))
+  );
+</script>
+</body>
+</html>

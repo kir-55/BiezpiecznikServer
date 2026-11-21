@@ -1,0 +1,34 @@
+<!-- @dsCard group="Mapa" height=300 subtitle="Znaczniki, pozycja, wskaźnik mapy szczegółowej" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>MapElements</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; display: grid; gap: 20px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .col { display: grid; gap: 12px; align-content: start; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: start; }
+  .lbl { font-size: 12px; line-height: 16px; color: var(--ink-300); }
+  .w360 { max-width: 360px; } .w420 { max-width: 420px; }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement, I = function (n, s) { return h(Z.Icon, { name: n, size: s }); };
+  var noop = function () {};
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap' },
+      h('div', { className: 'row', style: { gap: 18 } },
+        ['shelter', 'hiding_place', 'emergency_shelter', 'hospital', 'fire_station', 'water', 'pharmacy'].map(function (k) { return h(Z.MapMarker, { key: k, kind: k }); }),
+        h(Z.MapMarker, { kind: 'shelter', confirmed: false }), h(Z.MapMarker, { kind: 'shelter', selected: true }), h(Z.MapMarker, { count: 12 })),
+      h('div', { className: 'lbl' }, 'S schron · U ukrycie · M miejsce doraźnego schronienia · szpital · straż · woda · apteka · niepotwierdzony · wybrany · grupa'),
+      h('div', { className: 'row', style: { gap: 72, padding: '28px 40px', background: 'var(--bg-100)', borderRadius: 18 } },
+        h(Z.UserDot, { heading: 40, accuracy: 26 }), h(Z.UserDot, { stale: true, age: '3 min temu' }),
+        h(Z.DetailIndicator, { inside: true }), h(Z.DetailIndicator, { inside: false, onDownload: noop })))
+  );
+</script>
+</body>
+</html>

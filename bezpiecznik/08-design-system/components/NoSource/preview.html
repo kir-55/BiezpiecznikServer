@@ -1,0 +1,22 @@
+<!-- @dsCard group="Czat" height=220 subtitle="Brak źródła, sprawa niekrytyczna" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>NoSource</title>
+<style>
+  body { margin: 0; background: var(--bg-000); color: var(--ink-100); font-family: var(--font-sans); }
+  .wrap { padding: 20px 24px; max-width: 520px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var Z = window.Bezpiecznik, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    h('div', { className: 'wrap' }, h(Z.NoSource, {
+      suggestion: 'Zakres temperatur przechowywania jest w ulotce leku. Jeśli jej nie masz, zapytaj farmaceutę.',
+      actions: h(Z.Button, { size: 'sm' }, 'Zapytaj inaczej')
+    }))
+  );
+</script>
+</body>
+</html>
