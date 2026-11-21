@@ -1,0 +1,24 @@
+.grid { display: grid; gap: var(--space-4); align-items: start; }
+@media (min-width: 860px) { .grid { grid-template-columns: 7fr 5fr; gap: var(--space-5); } }
+
+/* DS Steps (plain): only spacing and the card around it change. */
+.steps.steps {
+  gap: var(--space-6);
+  padding: clamp(20px, 3vw, 32px);
+  border-radius: var(--radius-lg);
+  background: var(--bg-100);
+  border: 1px solid var(--line-100);
+}
+.steps :global(.bz-steps__detail) { margin-top: var(--space-1); font-size: 16px; line-height: 24px; }
+
+.tip {
+  display: grid; grid-template-columns: 22px 1fr; gap: var(--space-3); align-items: start;
+  padding: clamp(20px, 3vw, 32px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-100);
+  color: var(--ink-200); font-size: 16px; line-height: 24px;
+}
+.tip svg { margin-top: 1px; color: var(--ink-200); }
+.tipTitle { font: var(--text-label); font-size: 16px; line-height: 24px; color: var(--ink-100); margin-bottom: var(--space-1); overflow-wrap: anywhere; }
+.tip a { color: var(--ink-100); text-underline-offset: 3px; }
+.tip a:hover { text-decoration-thickness: 2px; }

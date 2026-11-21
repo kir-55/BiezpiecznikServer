@@ -1,0 +1,58 @@
+.layout { display: grid; gap: 28px; }
+.side, .main, .ask { display: grid; gap: 16px; align-content: start; }
+.side { gap: 28px; }
+.head { display: grid; gap: 16px; justify-items: start; }
+.title { font: var(--text-h2); letter-spacing: -0.015em; text-wrap: balance; }
+/* Each sentence starts on its own line, so the narrow column never splits "co się / dzieje". */
+.title span { display: block; text-wrap: balance; }
+
+.chips :global(.bz-chip) { min-height: 44px; }
+.chips :global(.bz-chip) svg { flex: none; opacity: .8; }
+/* The DS fills the chosen chip with `action`. Here it stays quiet: the page has one light button, and it is "Pobierz". */
+.chips :global(.bz-chip.is-on) { background: var(--bg-300); border-color: var(--line-200); color: var(--ink-100); }
+
+/* The chat itself: page background, a quiet frame, messages 24 px apart as in the app. */
+.window { padding: 16px; border: 1px solid var(--line-100); border-radius: var(--radius-xl); }
+.chat { display: flex; flex-direction: column; gap: var(--space-5); }
+.panel { display: grid; }
+.cardHead { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+.verify {
+  display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px;
+  border: 1px solid var(--signal); border-radius: var(--radius-sm); background: var(--signal-tint);
+  font: var(--text-label); font-size: 13px; line-height: 18px; color: var(--signal);
+}
+.cut, .fine { font: var(--text-caption); color: var(--ink-300); }
+.fine { padding-inline: 4px; }
+.note { align-items: center; }
+
+/* Answer sequence (motion.md): list items come in one after another, sources last. Only after a chip is chosen. */
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+.panel :global(li:nth-child(2)) { --k: 1; }
+.panel :global(li:nth-child(3)) { --k: 2; }
+.panel :global(li:nth-child(4)) { --k: 3; }
+.panel :global(li:nth-child(5)) { --k: 4; }
+.panel :global(li:nth-child(6)) { --k: 5; }
+.played .panel :global(li) {
+  animation: fade var(--duration-stream) var(--ease-out) both;
+  animation-delay: calc((var(--o, 0) + var(--k, 0)) * 110ms + 120ms);
+}
+.played .panel :global(.bz-steps__src), .played .cut {
+  animation: fade var(--duration-base) var(--ease-out) both;
+  animation-delay: calc(var(--n, 0) * 110ms + 320ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .played .panel :global(li), .played .panel :global(.bz-steps__src), .played .cut { animation-delay: 0s; }
+}
+
+@media (min-width: 600px) {
+  .window { padding: 24px; }
+}
+@media (min-width: 960px) {
+  .layout { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr); gap: 72px; align-items: start; }
+  .side { position: sticky; top: 104px; }
+  .window { min-height: 440px; }
+}
+
+/* Mockup 112/SMS buttons must never dial from the landing page. */
+.noDial a[href^="tel:"], .noDial a[href^="sms:"] { pointer-events: none; }
+.noDial { cursor: default; }

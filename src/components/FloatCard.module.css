@@ -1,0 +1,17 @@
+.card {
+  display: flex; gap: 12px; align-items: flex-start; width: max-content; max-width: min(320px, calc(100vw - 32px));
+  padding: 12px 16px; border-radius: var(--radius-md);
+  background: var(--bg-200); border: 1px solid var(--line-150); box-shadow: var(--shadow-float);
+}
+.icon { display: grid; place-items: center; width: 32px; height: 32px; flex: none; border-radius: var(--radius-sm); background: var(--bg-300); color: var(--ink-100); }
+.verified .icon { background: var(--verified-tint); color: var(--verified); }
+.text { display: grid; gap: 2px; }
+.row { display: flex; flex-wrap: wrap; column-gap: 12px; align-items: baseline; justify-content: space-between; font: var(--text-label); color: var(--ink-100); }
+.meta { font: var(--text-caption); color: var(--ink-300); white-space: nowrap; }
+.body { font: var(--text-caption); color: var(--ink-200); }
+
+/* First-screen cards arrive like notifications, CSS only (works without JS). */
+@media (prefers-reduced-motion: no-preference) {
+  .intro { animation: fc-intro var(--duration-slow) var(--ease-out) both; animation-delay: var(--fc-intro, 600ms); }
+}
+@keyframes fc-intro { from { opacity: 0; translate: 0 var(--space-1); scale: 0.96; } }

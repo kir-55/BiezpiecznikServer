@@ -1,0 +1,41 @@
+{
+  "name": "bezpiecznik-landing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test 'server/**/*.test.ts' 'shared/**/*.test.ts'",
+    "dev": "vite",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "prerender": "tsx scripts/prerender.ts",
+    "build": "npm run build:client && npm run build:ssr && npm run prerender",
+    "typecheck": "tsc -p tsconfig.json",
+    "release": "node scripts/gen-release.ts",
+    "prebuild": "npm run release",
+    "start": "node server/index.ts",
+    "dev:server": "tsx watch server/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "private": "true",
+  "type": "module",
+  "dependencies": {
+    "@hono/node-server": "^2.1.11",
+    "hono": "^4.13.19",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^6.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}

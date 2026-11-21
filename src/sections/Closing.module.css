@@ -1,0 +1,5 @@
+.section { padding: var(--section-gap) 0; }
+.inner { display: grid; justify-items: center; gap: 32px; text-align: center; }
+.title { font: var(--text-hero); letter-spacing: -0.02em; text-wrap: balance; }
+.title > span { display: block; }
+.micro { font: var(--text-caption); font-size: 14px; color: var(--ink-300); margin-top: -12px; }

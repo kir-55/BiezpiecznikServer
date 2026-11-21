@@ -1,0 +1,5 @@
+.tag {
+  display: inline-flex; align-items: center; min-height: 28px; padding: 2px 12px;
+  border: 1px solid var(--line-150); border-radius: var(--radius-full);
+  font: var(--text-label); color: var(--ink-200); background: var(--bg-100);
+}

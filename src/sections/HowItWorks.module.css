@@ -1,0 +1,70 @@
+/* "Krok" bento (structure from coachon.net): four cards, each with a cropped phone screen. */
+.grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+
+.card {
+  display: flex; flex-direction: column;
+  border-radius: var(--radius-lg);
+  background: var(--bg-100);
+  border: 1px solid var(--line-100);
+  overflow: hidden;
+}
+
+/* The phone sits on the page colour, the text on the card colour. */
+.visual {
+  position: relative;
+  height: 408px;
+  display: flex; justify-content: center;
+  background: var(--bg-000);
+  overflow: hidden;
+}
+/* PhoneFrame sets its own default size, so the size goes on the frame itself. */
+.visual .phone { --phone-w: 264; }
+.top { align-items: flex-start; padding-top: 40px; }
+.bottom { align-items: flex-end; padding-bottom: 40px; }
+
+.stage { position: relative; }
+.float { position: absolute; left: -28px; top: 284px; max-width: 280px; }
+/* On a screen anchored to the bottom, the card is placed from the bottom too. */
+.bottom .float { left: auto; right: -28px; top: auto; bottom: 292px; }
+
+.text { display: grid; gap: 8px; align-content: start; padding: 24px 20px 28px; border-top: 1px solid var(--line-100); }
+.step { font: var(--text-label); color: var(--ink-300); font-variant-numeric: tabular-nums; }
+.h3 { font: var(--text-h3); text-wrap: balance; }
+.p { font: var(--text-chat); color: var(--ink-200); max-width: 44ch; text-wrap: pretty; }
+
+.statement {
+  margin-top: clamp(48px, 7vw, 96px);
+  max-width: 22ch;
+  font: var(--text-h2); letter-spacing: -0.015em; text-wrap: balance;
+}
+
+@media (min-width: 900px) {
+  .grid { grid-template-columns: repeat(12, 1fr); gap: 20px; }
+  .card { grid-column: span 4; }
+  .text { padding: 28px 32px 32px; }
+
+  /* Wide cards: text beside the phone, on alternating sides. */
+  .wide { grid-column: span 8; flex-direction: row-reverse; }
+  .wide.flip { flex-direction: row; }
+  .wide .visual .phone { --phone-w: 288; }
+  .wide .visual { flex: none; width: 50%; height: auto; padding: 0; overflow: visible; }
+  /* Out of flow, so the phone never sets the row height: the narrow card does. */
+  .wide .visual > * { position: absolute; left: 0; right: 0; width: max-content; margin-inline: auto; }
+  .wide .top > * { top: 40px; }
+  .wide .bottom > * { bottom: 40px; }
+  .wide .text { flex: 1; align-content: end; border-top: 0; border-right: 1px solid var(--line-100); }
+  .wide.flip .text { border-right: 0; border-left: 1px solid var(--line-100); }
+  /* Over the line between text and screen, next to the user's message. */
+  .float { left: -132px; top: 72px; }
+  .bottom .float { right: -150px; bottom: 318px; }
+}
+
+/* Tablet: two by two. */
+@media (min-width: 640px) and (max-width: 899px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Narrow cards clip their visual: centre the floating card on the phone so it is never cut. */
+@media (max-width: 899px) {
+  .float, .bottom .float { left: 0; right: 0; margin-inline: auto; width: max-content; max-width: calc(100% - 16px); }
+}

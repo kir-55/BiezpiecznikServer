@@ -1,0 +1,59 @@
+/* Five situations in big rounded panels: whole screens here (cropped details belong to HowItWorks). */
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+
+.block {
+  display: grid; gap: 32px;
+  padding: 32px 20px 36px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-100);
+  border: 1px solid var(--line-100);
+  overflow: hidden;
+}
+
+/* PhoneFrame sets its own default size, so the size goes on the frame itself. */
+.block { --pw: 272; }
+.block .phone { --phone-w: var(--pw); }
+
+.text { display: grid; gap: 12px; align-content: start; }
+.kicker { font: var(--text-label); color: var(--ink-300); }
+.h3 { font: var(--text-h3); text-wrap: balance; }
+.p { font: var(--text-chat); color: var(--ink-200); max-width: 46ch; text-wrap: pretty; }
+.points { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 10px; font: var(--text-chat); color: var(--ink-100); }
+.points li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; }
+.points svg { box-sizing: content-box; width: 14px; height: 14px; margin-top: 1px; padding: 5px; border-radius: var(--radius-full); background: var(--bg-300); color: var(--ink-200); }
+.note { margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--line-100); font: var(--text-caption); color: var(--ink-300); max-width: 52ch; }
+
+/* Phone with fact cards. On a phone screen the cards sit on its lower edge; on desktop they float on its side. */
+.stage { position: relative; display: grid; justify-items: center; }
+.floats { position: relative; z-index: 1; display: grid; gap: 8px; justify-items: center; margin-top: -28px; }
+.float { position: static; }
+.stage .float > * { max-width: min(100%, 280px); }
+
+@media (max-width: 379px) { .block { --pw: 256; } }
+
+@media (min-width: 900px) {
+  .list { grid-template-columns: 1fr 1fr; gap: 20px; }
+  /* Side-by-side panels: phones line up at the bottom, whatever the heading length. */
+  .block { --pw: 280; padding: 48px 40px 76px; gap: 40px; grid-template-rows: 1fr auto; }
+  .floats { position: absolute; inset: 0; margin: 0; display: block; }
+  .float { position: absolute; width: max-content; max-width: 250px; }
+  /* min(): the card stays inside its panel (the panel clips); with little room it slides further over the phone. */
+  .right { left: min(calc(50% + var(--pw) * 0.5px - var(--overlap)), calc(100% - 250px)); }
+  .left { right: min(calc(50% + var(--pw) * 0.5px - var(--overlap)), calc(100% - 250px)); }
+  .stage .float > * { max-width: 100%; }
+
+  /* Full-width panels: text beside the phone, on alternating sides. The phone leans towards the text to leave room for the cards. */
+  .full { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; grid-template-rows: auto; align-items: center; gap: 48px; padding: 56px 64px 72px; --pw: 300; }
+  .full .h3 { font: var(--text-h2); letter-spacing: -0.015em; }
+  .full .p { font: var(--text-lead); }
+  .full .stage { margin-right: 48px; }
+  .full.flip .text { order: 2; }
+  .full.flip .stage { margin-right: 0; margin-left: 48px; }
+}
+
+/* Tablet: text beside the phone in every panel, cards still under the phone. */
+@media (min-width: 640px) and (max-width: 899px) {
+  .block { grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 32px; padding: 40px 32px 44px; }
+  .flip { grid-template-columns: auto minmax(0, 1fr); }
+  .flip .text { order: 2; }
+}

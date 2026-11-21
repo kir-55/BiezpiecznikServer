@@ -1,0 +1,6 @@
+.root { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+/* Heading a little above the middle, as in the app. */
+.start { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; padding-bottom: 56px; }
+.title { margin: 0; text-align: center; font: var(--text-title); font-size: 30px; line-height: 36px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink-100); }
+.tiles :global(.bz-quick__tile) { border-color: transparent; background: var(--bg-100); }
+.hint { margin: 0; text-align: center; font: var(--text-caption); color: var(--ink-300); }

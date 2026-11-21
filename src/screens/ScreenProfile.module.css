@@ -1,0 +1,24 @@
+/* Polish from the landing plan: groups in cards, section icons in ink-300, fewer lines. */
+.profile :global(.bz-panel) { gap: 8px; padding: 14px 16px; }
+.profile :global(.bz-panel__head) > svg { color: var(--ink-300); }
+
+.head { display: grid; gap: 6px; }
+.head p { margin: 0; font: var(--text-caption); color: var(--ink-200); }
+.head .title { font: var(--text-title); color: var(--ink-100); }
+
+.rows { display: grid; }
+.rows :global(.bz-row) { min-height: 40px; padding: 0; border-radius: 0; }
+.stepper { display: inline-flex; align-items: center; gap: 14px; color: var(--ink-200); }
+.stepper b { min-width: 2ch; text-align: center; font: var(--text-chat); font-weight: 700; color: var(--ink-100); font-variant-numeric: tabular-nums; }
+.zero b, .zero svg:first-child { color: var(--ink-300); }
+
+.field { display: grid; gap: 6px; }
+.field > span { font: var(--text-label); color: var(--ink-200); }
+.field > small { font: var(--text-caption); color: var(--ink-300); }
+.field :global(.bz-field__control) { border-color: var(--line-150); }
+
+.home { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.lift { display: grid; gap: 6px; justify-items: start; }
+.lift > span { font: var(--text-label); color: var(--ink-200); }
+.lift :global(.bz-seg) { height: 48px; align-items: center; padding: 4px; }
+.lift :global(.bz-seg__opt) { height: 40px; }

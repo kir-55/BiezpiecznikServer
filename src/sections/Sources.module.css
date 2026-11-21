@@ -1,0 +1,20 @@
+.grid { display: grid; gap: 40px 32px; }
+@media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+
+.group { display: grid; align-content: start; gap: 16px; padding-top: 20px; border-top: 1px solid var(--line-150); }
+.groupName { font: var(--text-label); color: var(--ink-300); }
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+.list li { display: grid; gap: 4px; }
+.title { font: var(--text-chat); font-weight: 700; color: var(--ink-100); text-wrap: pretty; }
+.by { font: var(--text-caption); font-size: 14px; color: var(--ink-200); }
+.about { font: var(--text-caption); color: var(--ink-300); }
+
+.note {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px;
+  margin-top: clamp(40px, 5vw, 64px); padding: 20px 24px;
+  border-radius: var(--radius-lg); background: var(--bg-100); border: 1px solid var(--line-100);
+}
+.note p { flex: 1 1 36ch; font: var(--text-chat); color: var(--ink-200); }
+.chip { flex: none; display: inline-flex; align-items: center; gap: 10px; }
+.chipLabel { font: var(--text-caption); color: var(--ink-300); }

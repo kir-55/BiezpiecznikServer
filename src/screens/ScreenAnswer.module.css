@@ -1,0 +1,10 @@
+.root { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; }
+
+/* Empty chat (same polish as screen A): filled tiles without borders. */
+.ask { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+.title { margin: 0; text-align: center; font: var(--text-title); font-size: 30px; line-height: 36px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink-100); }
+.ask :global(.bz-quick__tile) { border-color: transparent; background: var(--bg-100); }
+.hint { margin: 0; text-align: center; font: var(--text-caption); color: var(--ink-300); }
+
+/* Chat scrolled to the end: content sticks to the bottom, older content is cut at the top. */
+.scrolled { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: flex-end; }

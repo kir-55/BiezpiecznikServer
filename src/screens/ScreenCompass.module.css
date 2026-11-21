@@ -1,0 +1,10 @@
+/* Polish from the landing plan: bigger tabular metres, the needle stays in --signal (DS default). */
+.compass { flex: 1; justify-content: space-between; gap: 0; padding: 4px 0 28px; }
+.compass :global(.bz-compass__to) { font-size: 20px; line-height: 28px; color: var(--ink-100); }
+.compass :global(.bz-compass__dial) { width: 264px; height: 264px; }
+.compass :global(.bz-compass__dist) { font-size: 76px; line-height: 80px; font-weight: 800; letter-spacing: -0.02em; margin-top: -8px; }
+.compass :global(.bz-compass__card) { font-size: 22px; line-height: 28px; margin-top: -20px; }
+.compass :global(.bz-compass__coords) { margin-top: -24px; }
+.compass :global(.bz-compass__actions) { margin-top: 0; }
+/* As in the app: "Zakończ" is a plain button here. Red is only for SOS and 112. */
+.compass :global(.bz-btn--danger) { color: var(--ink-100); }

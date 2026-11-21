@@ -1,0 +1,74 @@
+.bento { display: grid; gap: 16px; }
+@media (min-width: 640px) and (max-width: 899px) { .bento { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) {
+  .bento { grid-template-columns: repeat(12, 1fr); gap: 20px; }
+  .card { grid-column: span 5; }
+  .wide { grid-column: span 7; }
+}
+
+.card {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 32px;
+  padding: 28px 20px 20px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-100);
+  border: 1px solid var(--line-100);
+}
+@media (min-width: 900px) { .card { padding: 36px 32px 32px; gap: 40px; } }
+
+.h3 { font: var(--text-h3); max-width: 30ch; text-wrap: pretty; }
+.visual { display: grid; }
+
+/* card 1: where the data lives */
+.rows { display: grid; gap: 2px; padding: 8px; border-radius: var(--radius-md); background: var(--bg-200); }
+.rows :global(.bz-row) { min-height: 48px; padding-inline: 12px; }
+
+/* card 2: refusal */
+.chat { display: grid; gap: 12px; }
+.bubble {
+  justify-self: end; max-width: 85%;
+  padding: 10px 16px; border-radius: var(--radius-lg);
+  background: var(--bg-200); font: var(--text-chat); color: var(--ink-100);
+}
+
+/* card 3: SMS draft */
+.sms {
+  position: relative; display: grid; gap: 8px;
+  padding: 16px 16px 16px; border-radius: var(--radius-md);
+  background: var(--bg-200);
+}
+.smsTo { font: var(--text-caption); color: var(--ink-300); }
+.smsBody {
+  padding: 12px 14px; border-radius: var(--radius-lg) var(--radius-lg) var(--radius-sm) var(--radius-lg);
+  background: var(--bg-300); font: var(--text-caption); color: var(--ink-100);
+  margin-right: 44px;
+  overflow-wrap: anywhere;
+}
+.send {
+  position: absolute; right: 16px; bottom: 16px;
+  display: grid; place-items: center; width: 36px; height: 36px;
+  border-radius: var(--radius-full); border: 1px solid var(--line-150); color: var(--ink-200);
+}
+
+/* card 4: zero trackers */
+.counts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0; }
+.counts > div {
+  display: grid; gap: 4px; padding: 14px 16px;
+  border-radius: var(--radius-md); background: var(--bg-200);
+}
+.counts dt { font: var(--text-caption); color: var(--ink-300); }
+.counts dd { margin: 0; font: var(--text-readout); color: var(--ink-100); }
+
+/* motto (Calmaria / Signal style) */
+.motto {
+  margin: clamp(56px, 8vw, 96px) 0 clamp(40px, 6vw, 72px);
+  font: var(--text-h2); letter-spacing: -0.015em; text-align: center; text-wrap: balance;
+}
+
+/* honest scope bar (coachon) built on DS Notice */
+.scope.scope { padding: 20px; border-radius: var(--radius-lg); background: var(--bg-100); border: 1px solid var(--line-100); font-size: 15px; line-height: 24px; }
+.scope :global(.bz-notice__text) { gap: 6px; }
+@media (min-width: 900px) {
+  .scope.scope { padding: 24px 32px; }
+  .scope :global(.bz-notice__text) { grid-template-columns: 220px 1fr; gap: 24px; }
+}
+.nowrap, .motto > span { white-space: nowrap; }

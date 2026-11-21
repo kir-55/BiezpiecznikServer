@@ -1,0 +1,5 @@
+.section { padding: var(--section-gap) 0 0; }
+.head { display: grid; gap: 16px; justify-items: start; margin-bottom: clamp(32px, 4vw, 56px); max-width: 760px; }
+.center { justify-items: center; text-align: center; margin-inline: auto; }
+.title { font: var(--text-h2); letter-spacing: -0.015em; text-wrap: balance; }
+.lead { font: var(--text-lead); color: var(--ink-200); max-width: 60ch; }

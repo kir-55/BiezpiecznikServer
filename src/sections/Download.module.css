@@ -1,0 +1,74 @@
+.cards { display: grid; gap: var(--space-4); }
+@media (min-width: 720px) {
+  .cards { grid-template-columns: 7fr 5fr; gap: var(--space-5); }
+  /* On a computer the QR code is the way to the phone, so it goes first. */
+  .desktop { grid-template-columns: 5fr 7fr; }
+  .desktop .qrCard { order: -1; }
+}
+
+.card {
+  display: grid; align-content: start; gap: var(--space-5);
+  padding: clamp(20px, 3vw, 32px);
+  border-radius: var(--radius-lg);
+  background: var(--bg-100);
+  border: 1px solid var(--line-100);
+}
+
+.title { font: var(--text-title); }
+.line { margin-top: var(--space-1); color: var(--ink-200); font-size: 16px; line-height: 24px; }
+
+/* DS ListRow as a quiet fact list: hairlines between rows, aligned to the card edge. */
+.facts { border-top: 1px solid var(--line-100); }
+.facts :global(.bz-row) { min-height: 48px; padding: 8px 0; border-radius: 0; border-bottom: 1px solid var(--line-100); }
+.facts :global(.bz-row__label) { color: var(--ink-200); font-size: 15px; }
+.facts :global(.bz-row__value) { color: var(--ink-100); font-size: 15px; white-space: normal; text-align: right; }
+
+.cta { display: grid; gap: var(--space-3); }
+.here { color: var(--ink-200); font-size: 15px; line-height: 22px; text-align: center; }
+
+/* SHA-256 disclosure */
+.sum { border-top: 1px solid var(--line-100); margin-top: calc(-1 * var(--space-2)); }
+.sumHead {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+  min-height: 48px; padding-top: var(--space-2); cursor: pointer; list-style: none;
+  font: var(--text-label); color: var(--ink-200);
+  transition: color var(--duration-fast) var(--ease-in-out);
+}
+.sumHead::-webkit-details-marker { display: none; }
+.sumHead:hover { color: var(--ink-100); }
+.chev { flex: none; transition: transform var(--duration-base) var(--ease-out); }
+.sum[open] .chev { transform: rotate(180deg); }
+.sumBody { display: grid; gap: var(--space-3); justify-items: start; padding: var(--space-2) 0 var(--space-1); animation: fade var(--duration-base) var(--ease-out); }
+.sumHint { color: var(--ink-300); font-size: 14px; line-height: 20px; }
+.hash {
+  width: 100%; padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm); background: var(--bg-200);
+  color: var(--ink-100); font-size: 15px; line-height: 24px; letter-spacing: .02em;
+  font-variant-numeric: tabular-nums; overflow-wrap: anywhere; user-select: all;
+}
+
+/* QR card */
+.qrCard { justify-items: center; text-align: center; }
+.qrCard header { justify-self: stretch; text-align: left; }
+@media (min-width: 720px) {
+  .qrCard { grid-template-rows: auto 1fr auto; }
+  .qrCard > svg { align-self: center; }
+}
+.scan { color: var(--ink-200); font-size: 15px; line-height: 22px; display: grid; gap: var(--space-1); }
+.url { color: var(--ink-100); font-size: 18px; line-height: 26px; font-weight: 700; user-select: all; overflow-wrap: anywhere; }
+
+/* Good to know */
+.good {
+  margin-top: var(--space-4);
+  padding: clamp(20px, 3vw, 32px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-100);
+}
+.goodTitle { font: var(--text-label); color: var(--ink-200); margin-bottom: var(--space-4); }
+.goodGrid { display: grid; gap: var(--space-5); }
+@media (min-width: 860px) { .goodGrid { grid-template-columns: 1fr 1fr; gap: var(--space-6); } }
+.goodItem { display: grid; grid-template-columns: 22px 1fr; gap: var(--space-3); align-items: start; color: var(--ink-200); font-size: 16px; line-height: 24px; }
+.goodItem svg { margin-top: 1px; color: var(--ink-200); }
+.goodItem strong { color: var(--ink-100); }
+
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }

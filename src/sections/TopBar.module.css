@@ -1,0 +1,23 @@
+/* Phone: the bar scrolls away with the page (README, "Pasek górny"). From 768 px it stays at the top. */
+.bar { padding-top: 12px; z-index: 20; position: relative; }
+.wrap { display: flex; }
+.pill {
+  flex: 1; display: flex; align-items: center; gap: 8px;
+  min-height: 56px; padding: 5px 9px 5px 20px;
+  background: var(--bg-100); border: 1px solid var(--line-150); border-radius: var(--radius-full);
+}
+.logo { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; border-radius: var(--radius-full); }
+.nav { display: none; }
+.get { margin-left: auto; min-height: 44px; padding-inline: 18px; }
+
+@media (min-width: 768px) {
+  .bar { position: sticky; top: 12px; padding-top: 0; margin-top: 12px; }
+  .nav { display: flex; align-items: center; gap: 4px; margin-left: 20px; }
+  .link {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px;
+    border-radius: var(--radius-full); text-decoration: none;
+    font: var(--text-label); font-size: 15px; color: var(--ink-200);
+    transition: color var(--duration-fast) var(--ease-in-out), background-color var(--duration-fast) var(--ease-in-out);
+  }
+  .link:hover { color: var(--ink-100); background: var(--overlay-hover); }
+}

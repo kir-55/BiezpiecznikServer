@@ -1,0 +1,14 @@
+.bottom { display: grid; gap: 8px; }
+/* In the app the dot beats with the metronome. On the landing nothing pulses: remove this rule to bring the beat back. */
+.bottom :global(.bz-beat), .card :global(.bz-beat) { animation: none; }
+
+/* Label row as in the app: quiet "Karta ratunkowa" and the "Do weryfikacji" badge. Red stays on SOS and 112 only. */
+.label { display: flex; align-items: center; gap: 8px; }
+.label :global(.bz-origin) { color: var(--ink-300); }
+.verify { padding: 2px 10px 2px 8px; border-radius: var(--radius-full); align-items: center; gap: 6px; font-size: 13px; line-height: 18px; font-weight: 600; }
+.verify > svg { width: 14px; height: 14px; margin-top: 0; }
+
+/* 999 / 998 / 997: one quiet row under the two big buttons. */
+.numbers { display: flex; align-items: center; gap: 16px; margin-top: -4px; padding: 0 4px; font: var(--text-caption); color: var(--ink-300); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.numbers b { color: var(--ink-200); font-weight: 600; }
+.more { margin-left: auto; display: inline-flex; align-items: center; gap: 2px; color: var(--ink-200); font-weight: 600; }

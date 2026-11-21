@@ -1,0 +1,43 @@
+.hero { padding: clamp(40px, 7vw, 88px) 0 0; }
+.grid { display: grid; gap: 56px; }
+.copy { display: grid; justify-items: start; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 4px; min-height: 44px; margin-bottom: 4px;
+  font: var(--text-label); font-size: 15px; color: var(--ink-100); text-decoration: none;
+}
+.eyebrow svg { color: var(--ink-300); transition: transform var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out); }
+.eyebrow:hover svg { transform: translateX(3px); color: var(--ink-100); }
+
+/* README "Hasło": the changing word is ink-100, the rest of the sentence ink-200. No signal colour in the heading. */
+.title { font: var(--text-hero); letter-spacing: -0.03em; color: var(--ink-200); }
+.word { color: var(--ink-100); }
+.sub { margin-top: 20px; max-width: 31em; font: var(--text-lead); color: var(--ink-200); text-wrap: pretty; }
+
+.actions { display: grid; gap: 12px; width: 100%; margin-top: 32px; }
+.micro { margin-top: 16px; font: 400 14px/20px var(--font-sans); color: var(--ink-300); }
+.micro b { font-weight: 700; color: var(--ink-100); }
+
+.visual { display: flex; justify-content: center; }
+.stage { position: relative; }
+.stage .phone { --phone-w: 280; }
+/* Float cards sit only over empty parts of the screen: under the top bar and above the composer.
+   On wider screens they hang further off the left and right edges. */
+.cardA, .cardB { position: absolute; max-width: 272px; }
+.cardA { left: -8px; top: 14.5%; }
+.cardB { right: -8px; bottom: 14%; }
+
+@media (min-width: 560px) {
+  .actions { display: flex; flex-wrap: wrap; width: auto; }
+  .cardA, .cardB { max-width: 320px; }
+  .cardA { left: -132px; top: 17%; }
+  .cardB { right: -124px; }
+}
+
+@media (min-width: 960px) {
+  .grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: center; gap: 32px; }
+  .visual { justify-content: flex-end; padding-right: 72px; }
+  .stage .phone { --phone-w: 320; }
+  .cardA { left: -156px; }
+  .cardB { right: -96px; }
+}

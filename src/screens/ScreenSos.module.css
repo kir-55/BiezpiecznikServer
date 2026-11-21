@@ -1,0 +1,10 @@
+.scrim { position: absolute; inset: 0; z-index: 1; background: var(--scrim); }
+.sheet { z-index: 2; }
+.sheet :global(.bz-sheet__body) { padding-bottom: 28px; }
+/* Same place as in AppChrome, above everything. */
+.sos { position: absolute; top: 8px; right: 16px; z-index: 3; }
+
+.profile { padding: 8px 0 0; margin-top: 8px; }
+.gps { margin: 6px 0 12px; font: var(--text-caption); color: var(--ink-300); font-variant-numeric: tabular-nums; }
+.more { padding: 0; min-height: 48px; border-top: 1px solid var(--line-100); border-radius: 0; color: var(--ink-200); }
+.more :global(.bz-row__label) { font: var(--text-label); color: var(--ink-100); }

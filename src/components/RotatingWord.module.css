@@ -1,0 +1,12 @@
+.slot { position: relative; display: inline-grid; vertical-align: baseline; white-space: nowrap; }
+/* Waiting words sit 4 px below, invisible. No transition here: only .on and .past animate. */
+.word { grid-area: 1 / 1; opacity: 0; transform: translateY(4px); user-select: none; }
+/* In: 180 ms, and only after the old word has finished its 120 ms fade-out. */
+.on {
+  opacity: 1; transform: none; user-select: auto;
+  transition: opacity 180ms var(--ease-out) 120ms, transform 180ms var(--ease-out) 120ms;
+}
+.past {
+  transform: translateY(-4px);
+  transition: opacity 120ms var(--ease-in), transform 120ms var(--ease-in);
+}
