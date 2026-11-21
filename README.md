@@ -45,7 +45,7 @@ At runtime the server reads the APK again for every request (stat only), so repl
 | `GET`/`HEAD /paczki/<name>` | A data pack from `PACKS_DIR`: a file name ending in `.mbtiles` or `.litertlm`, no sub-directories. Streamed like the APK: ETag = sha256, single `Range` (the app resumes with `bytes=N-`), `If-Range`, `If-None-Match`. Anything else: JSON 404. |
 | `GET /pobierz` | The QR code target. Android: 302 to the APK. Anything else: 302 to `/#pobierz`. |
 | `GET /healthz` | `ok` |
-
+aaaa
 ## Environment
 
 | Variable | Default | |
