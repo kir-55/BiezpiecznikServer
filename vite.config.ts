@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath } from 'node:url';
 
-const ds = fileURLToPath(new URL('../bezpiecznik/08-design-system', import.meta.url));
+const ds = fileURLToPath(new URL('/bezpiecznik/08-design-system', import.meta.url));
 
 // The design system lives in the spec folder and is imported from there, never copied.
 export default defineConfig({

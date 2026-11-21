@@ -9,8 +9,21 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
-    "types": ["node", "vite/client"],
-    "paths": { "@ds/*": ["../bezpiecznik/08-design-system/*"] }
+    "types": [
+      "node",
+      "vite/client"
+    ],
+    "paths": {
+      "@ds/*": [
+        "/bezpiecznik/08-design-system/*"
+      ]
+    }
   },
-  "include": ["src", "server", "shared", "scripts", "vite.config.ts"]
+  "include": [
+    "src",
+    "server",
+    "shared",
+    "scripts",
+    "vite.config.ts"
+  ]
 }
